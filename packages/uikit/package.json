@@ -1,5 +1,5 @@
 {
-  "name": "@vipswap-toolkit/uikit",
+  "name": "@vipswap/uikit",
   "version": "0.1.2",
   "description": "Set of UI components for projects",
   "main": "dist/index.cjs.js",
@@ -63,5 +63,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "dbecdd6080da356a37758bd14f8b463bd0f11317"
+  "gitHead": "a05e94c9e1f87af7716635ba4a4a913cbc4e98cd"
 }

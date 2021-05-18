@@ -1,5 +1,5 @@
 {
-  "name": "@vipswap-toolkit/eslint-config-vipswap",
+  "name": "@vipswap/eslint-config-vipswap",
   "version": "1.1.2",
   "description": "Eslint config for VipSwap",
   "main": "lib/index.js",
@@ -27,5 +27,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "dbecdd6080da356a37758bd14f8b463bd0f11317"
+  "gitHead": "a05e94c9e1f87af7716635ba4a4a913cbc4e98cd"
 }
