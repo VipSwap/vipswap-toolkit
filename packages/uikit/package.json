@@ -1,0 +1,67 @@
+{
+  "name": "@vipswap-toolkit/uikit",
+  "version": "0.1.0",
+  "description": "Set of UI components for projects",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": "https://github.com/VipSwap/vipswap-toolkit/tree/master/packages/uikit",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn storybook",
+    "build": "rm -rf ./dist && rollup -c && tsc -d --emitDeclarationOnly --declarationDir dist",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "format:check": "prettier --check --loglevel error 'src/**/*.{js,jsx,ts,tsx}'",
+    "format:write": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook",
+    "test": "jest",
+    "clean": "rm -rf ./dist && rm -rf .tsbuildinfo"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ]
+  },
+  "devDependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
+    "@svgr/rollup": "^5.5.0",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.5",
+    "file-loader": "^6.2.0",
+    "jest-styled-components": "^7.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "redux-localstorage-simple": "^2.4.0",
+    "styled-components": "^5.2.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.3"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@popperjs/core": "^2.9.2",
+    "@types/lodash": "^4.14.168",
+    "@types/styled-system": "^5.1.10",
+    "lodash": "^4.17.20",
+    "react-feather": "^2.0.9",
+    "react-inlinesvg": "^2.2.2",
+    "react-popper": "^2.2.5",
+    "react-svg": "^13.0.3",
+    "react-transition-group": "^4.4.1",
+    "styled-system": "^5.1.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "b0ee94d5890484ae9269dec1a26573f77c246351"
+}
