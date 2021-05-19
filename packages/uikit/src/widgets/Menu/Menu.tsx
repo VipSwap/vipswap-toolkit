@@ -80,12 +80,16 @@ const Menu: React.FC<NavProps> = ({
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
-  console.log('isMobile', isMobile)
+  // console.log('Menu isMobile', isMobile)
+  // console.log('Menu currentLang', currentLang)
+  // console.log('Menu links', links[0])
   const [isPushed, setIsPushed] = useState(!isMobile);
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(window.pageYOffset);
+  const [currentLinks, setCurrentLinks] = useState(links);
 
   useEffect(() => {
+    setCurrentLinks(links)
     const handleScroll = () => {
       const currentOffset = window.pageYOffset;
       const isBottomOfPage = window.document.body.clientHeight === currentOffset + window.innerHeight;
@@ -112,7 +116,7 @@ const Menu: React.FC<NavProps> = ({
     return () => {
       window.removeEventListener("scroll", throttledHandleScroll);
     };
-  }, []);
+  }, [setCurrentLinks,links]);
 
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
@@ -144,7 +148,7 @@ const Menu: React.FC<NavProps> = ({
           currentLang={currentLang}
           tokenPriceUsd={tokenPriceUsd}
           pushNav={setIsPushed}
-          links={links}
+          links={currentLinks}
           webAsset={webAsset}
           socials={socials}
         />
