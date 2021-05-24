@@ -32,6 +32,7 @@ const ExpandLessSVG = styled(ExpandLess)`
   margin-left: 6px;
 `
 const DropdownBtn = styled(Button)`
+  margin-right: 15px;
   &:hover ${ExpandMoreSVG} {
     display: none;
   }
