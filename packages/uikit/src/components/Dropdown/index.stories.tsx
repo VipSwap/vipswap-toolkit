@@ -2,6 +2,8 @@ import React from "react";
 import Button from "../Button/Button";
 import Flex from "../Box/Flex";
 import Dropdown from "./Dropdown";
+import styled from "styled-components";
+import { ExpandLess, ExpandMore } from "@material-ui/icons";
 
 export default {
   title: "Components/Dropdown",
@@ -9,12 +11,35 @@ export default {
   argTypes: {},
 };
 
+const DropdownItem = styled.div`
+  padding: 10px 15px;
+  font-size: 18px;
+  color: ${({theme})=>theme.colors.text};
+`
+
+const ExpandMoreSVG = styled(ExpandMore)`
+  margin-left: 6px;
+`
+const ExpandLessSVG = styled(ExpandLess)`
+  margin-left: 6px;
+`
+const DropdownBtn = styled(Button)`
+  &:hover ${ExpandMoreSVG} {
+    display: none;
+  }
+  &:hover ${ExpandLessSVG} {
+    display: inline-block;
+  }
+  & ${ExpandLessSVG} {
+    display: none;
+  }
+`
 export const Default: React.FC = () => {
   return (
     <div>
-      <Dropdown target={<Button>Hover</Button>}>
+      <Dropdown target={<DropdownBtn scale="sm" borderRadius="4px">Hover<ExpandMoreSVG/><ExpandLessSVG/></DropdownBtn>}>
         {[...Array(30)].map(() => (
-          <div>Content</div>
+          <DropdownItem>Content</DropdownItem>
         ))}
       </Dropdown>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { DropdownProps, PositionProps, Position } from "./types";
+import { ExpandMore, ExpandLess } from '@material-ui/icons';
 
 const getLeft = ({ position }: PositionProps) => {
   if (position === "top-right") {
@@ -45,6 +46,7 @@ const Dropdown: React.FC<DropdownProps> = ({ target, position = "bottom", childr
   return (
     <Container>
       {target}
+
       <DropdownContent position={position}>{children}</DropdownContent>
     </Container>
   );
