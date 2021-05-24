@@ -10,6 +10,7 @@ import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+import SelectConnector from "./components/SelectConnector";
 
 const Wrapper = styled.div`
   position: relative;
@@ -77,6 +78,7 @@ const Menu: React.FC<NavProps> = ({
   webAsset,
   socials,
   walletSet,
+  connectorSet
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
@@ -132,6 +134,14 @@ const Menu: React.FC<NavProps> = ({
           webIcon={webAsset.webIcon}
         />
         <Flex>
+          {connectorSet && (
+            <SelectConnector
+              logout={logout}
+              chainId={connectorSet.chainId}
+              list={connectorSet.connectorList}
+              networkLabels={connectorSet.networkLabels}
+            />
+          )}
           <UserBlock account={account} login={login} logout={logout} walletSet={walletSet}/>
           {/*{profile && <Avatar profile={profile} />}*/}
         </Flex>

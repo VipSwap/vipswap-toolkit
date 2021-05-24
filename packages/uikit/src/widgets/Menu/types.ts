@@ -77,11 +77,23 @@ export interface PanelProps {
   webAsset: any;
   socials: Array<Socials>;
 }
-
+export interface ConnectorList {
+  login: Login;
+  helpLink: string;
+  scanLink:string;
+  scanLabel: string;
+  chainName: string;
+}
+export interface ConnectorSet {
+  connectorList: Array<ConnectorList>;
+  chainId: number;
+  networkLabels: { [index:number]: string }
+}
 export interface NavProps extends PanelProps {
   account?: string;
   login: Login;
   profile?: Profile;
   logout: () => void;
   walletSet?: any;
+  connectorSet?: ConnectorSet;
 }
