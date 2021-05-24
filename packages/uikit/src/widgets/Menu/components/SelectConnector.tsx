@@ -24,6 +24,10 @@ const DropdownItem = styled.div`
   padding: 10px 15px;
   font-size: 18px;
   color: ${({theme})=>theme.colors.text};
+  cursor: pointer;
+  :hover {
+    background-color: ${({theme})=>theme.colors.navHover};
+  }
 `
 const ExpandMoreSVG = styled(ExpandMore)`
   margin-left: 6px;
