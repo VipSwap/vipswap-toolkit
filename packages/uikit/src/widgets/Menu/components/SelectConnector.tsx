@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../../components/Button/Button";
-import { useWalletModal } from "../../WalletModal";
+import { ConnectorNames, useWalletModal } from "../../WalletModal";
 import { Login } from "../../WalletModal/types";
 import Dropdown from "../../../components/Dropdown/Dropdown";
 
@@ -10,6 +10,7 @@ export interface ConnectorList {
   scanLink:string;
   scanLabel: string;
   chainName: string;
+  connectorId: ConnectorNames;
 }
 interface Props {
   list: Array<ConnectorList>
@@ -26,7 +27,7 @@ const SelectConnector: React.FC<Props> = ({ list,logout, chainId, networkLabels 
           return (
             <div
               onClick={() => {
-                onPresentConnectModal();
+                item.login(item.connectorId)
               }}
               key={index}
             >

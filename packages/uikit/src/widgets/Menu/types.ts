@@ -1,5 +1,5 @@
 import { Colors } from "../../theme/types";
-import { Login } from "../WalletModal/types";
+import { ConnectorNames, Login } from "../WalletModal/types";
 
 export interface Language {
   code: string;
@@ -83,6 +83,7 @@ export interface ConnectorList {
   scanLink:string;
   scanLabel: string;
   chainName: string;
+  connectorId: ConnectorNames;
 }
 export interface ConnectorSet {
   connectorList: Array<ConnectorList>;
