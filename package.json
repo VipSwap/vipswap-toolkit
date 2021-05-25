@@ -1,6 +1,6 @@
 {
   "name": "vipswap-toolkit",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "description": "toolkit packages",
   "private": true,
   "workspaces": [
@@ -22,7 +22,8 @@
     "lint": "lerna run lint",
     "format:check": "lerna run format:check",
     "storybook:build": "lerna run storybook:build",
-    "release": "yarn build && yarn lerna publish"
+    "release": "yarn build && yarn lerna publish",
+    "release-beta": "yarn build && yarn lerna publish --dist-tag beta"
   },
   "husky": {
     "hooks": {
