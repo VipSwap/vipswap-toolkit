@@ -136,7 +136,6 @@ const Menu: React.FC<NavProps> = ({
         <Flex>
           {account && connectorSet && (
             <SelectConnector
-              logout={logout}
               chainId={connectorSet.chainId}
               list={connectorSet.connectorList}
               networkLabels={connectorSet.networkLabels}
