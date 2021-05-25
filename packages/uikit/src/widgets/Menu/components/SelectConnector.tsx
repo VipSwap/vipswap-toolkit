@@ -21,7 +21,7 @@ const DropdownItem = styled.div`
   font-size: 18px;
   color: ${({theme})=>theme.colors.text};
   cursor: pointer;
-  :hover {
+  &:hover {
     background-color: ${({theme})=>theme.colors.navHover};
   }
 `
