@@ -79,9 +79,6 @@ export interface PanelProps {
 }
 export interface ConnectorList {
   login: Login;
-  helpLink: string;
-  scanLink:string;
-  scanLabel: string;
   chainName: string;
   connectorId: ConnectorNames;
 }

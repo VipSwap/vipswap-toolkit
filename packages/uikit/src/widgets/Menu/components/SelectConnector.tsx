@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../../components/Button/Button";
-import { ConnectorNames, useWalletModal } from "../../WalletModal";
+import { ConnectorNames } from "../../WalletModal";
 import { Login } from "../../WalletModal/types";
 import Dropdown from "../../../components/Dropdown/Dropdown";
 import styled from "styled-components";
@@ -8,15 +8,11 @@ import { ExpandLess, ExpandMore } from "@material-ui/icons";
 
 export interface ConnectorList {
   login: Login;
-  helpLink: string;
-  scanLink:string;
-  scanLabel: string;
   chainName: string;
   connectorId: ConnectorNames;
 }
 interface Props {
   list: Array<ConnectorList>
-  logout: () => void;
   chainId: number;
   networkLabels: { [index:number]: string }
 }
@@ -47,7 +43,7 @@ const DropdownBtn = styled(Button)`
     display: none;
   }
 `
-const SelectConnector: React.FC<Props> = ({ list,logout, chainId, networkLabels }) => {
+const SelectConnector: React.FC<Props> = ({ list, chainId, networkLabels }) => {
   const dropdownTarget = ()=>(
     <DropdownBtn scale="sm" borderRadius="10px">
       {networkLabels[chainId]}
@@ -59,7 +55,6 @@ const SelectConnector: React.FC<Props> = ({ list,logout, chainId, networkLabels 
     <div>
       <Dropdown target={dropdownTarget()}>
         {list.map((item, index) => {
-          const { onPresentConnectModal } = useWalletModal(item.login, logout, null, item.helpLink, item.scanLink, item.scanLabel);
           return (
             <DropdownItem
               onClick={() => {
