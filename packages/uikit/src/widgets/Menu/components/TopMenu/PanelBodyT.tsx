@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { SvgProps } from "../../../../components/Svg";
 import * as IconModule from "../../icons";
 import AccordionT from "./AccordionT";
-import { MenuEntry, LinkLabel, LinkStatus, LinkLabelStatus } from "../MenuEntry";
+import { MenuEntry, LinkStatus, LinkLabelStatus } from "../MenuEntry";
 import MenuLink from "../MenuLink";
 import { PanelProps, PushedProps } from "../../types";
-import SVG from "react-inlinesvg";
 import Dropdown from "../../../../components/Dropdown/Dropdown";
 import { MoreHoriz } from "@material-ui/icons";
 
@@ -44,7 +43,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
         const Icon = Icons[entry.icon];
         const iconElement = <Icon width="24px" mr="8px" />;
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
-        if(index>= 5) return null
+        if(index>= 5) return null;
         if (entry.items) {
           const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
           const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
@@ -101,7 +100,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
             const Icon = Icons[entry.icon];
             const iconElement = <Icon width="24px" mr="8px" />;
             const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
-            if(index < 5) return null
+            if(index < 5) return null;
             if (entry.items) {
               const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
               const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
