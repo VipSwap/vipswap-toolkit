@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import PanelBody from "./PanelBody";
-import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../../config";
+import PanelBodyT from "./PanelBodyT";
 import { PanelProps, PushedProps } from "../../types";
 
 interface Props extends PanelProps, PushedProps {
@@ -23,7 +22,7 @@ const TopPanel: React.FC<Props> = (props) => {
   const { isPushed, showMenu } = props;
   return (
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
-      <PanelBody {...props} />
+      <PanelBodyT {...props} />
     </StyledPanel>
   );
 };

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { SvgProps } from "../../../../components/Svg";
 import * as IconModule from "../../icons";
-import Accordion from "./Accordion";
+import AccordionT from "./AccordionT";
 import { MenuEntry, LinkLabel, LinkStatus, LinkLabelStatus } from "../MenuEntry";
 import MenuLink from "../MenuLink";
 import { PanelProps, PushedProps } from "../../types";
@@ -22,7 +22,7 @@ const Container = styled.div`
   display: flex;
   height: 100%;
 `;
-const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
+const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   const location = useLocation();
 
   // Close the menu when a user clicks a link on mobile
@@ -49,7 +49,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
           const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
           const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
           const dropdownMenu = (
-            <Accordion
+            <AccordionT
               key={entry.label}
               isPushed={isPushed}
               pushNav={pushNav}
@@ -61,7 +61,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               iconLink={entry.iconLink}
               iconSize={entry.iconSize}
             >
-            </Accordion>
+            </AccordionT>
           )
           return (
             <Dropdown position="bottom"  className={`menu-st-${index}`} target={dropdownMenu}>
@@ -106,7 +106,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
               const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
               const dropdownMenu = (
-                <Accordion
+                <AccordionT
                   key={entry.label}
                   isPushed={isPushed}
                   pushNav={pushNav}
@@ -119,7 +119,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
                   iconSize={entry.iconSize}
                   dropdownBottom={false}
                 >
-                </Accordion>
+                </AccordionT>
               )
               return (
                 <Dropdown position="right" className={`menu-nd-${index}`}  target={dropdownMenu}>
@@ -158,4 +158,4 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   );
 };
 
-export default PanelBody;
+export default PanelBodyT;

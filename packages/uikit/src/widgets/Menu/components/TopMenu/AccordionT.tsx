@@ -45,7 +45,7 @@ const AccordionContent = styled.div<{ isOpen: boolean; isPushed: boolean; maxHei
 const ArrowRightSvg = styled(ArrowRight)`
   margin-left: 6px;
 `
-const Accordion: React.FC<Props> = ({
+const AccordionT: React.FC<Props> = ({
   label,
   icon,
   isPushed,
@@ -82,5 +82,5 @@ const Accordion: React.FC<Props> = ({
   );
 };
 
-// export default React.memo(Accordion, (prev, next) => prev.isPushed === next.isPushed);
-export default Accordion;
+// export default React.memo(AccordionT, (prev, next) => prev.isPushed === next.isPushed);
+export default AccordionT;
