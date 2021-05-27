@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { LogoIcon } from "../../../../components/Svg";
 import Flex from "../../../../components/Box/Flex";
-import { HamburgerIcon, HamburgerCloseIcon, LogoIcon as LogoWithText } from "../../icons";
+import { HamburgerIcon, HamburgerCloseIcon } from "../../icons";
 import MenuButton from "../MenuButton";
 
 interface Props {
@@ -32,8 +31,6 @@ const StyledLink = styled(Link)`
     }
   }
 `;
-const StyledIcon = styled.div`
-`
 
 const LogoT: React.FC<Props> = ({ isMobile,isPushed, togglePush, isDark, href , webIcon}) => {
   const isAbsoluteUrl = href.startsWith("http");

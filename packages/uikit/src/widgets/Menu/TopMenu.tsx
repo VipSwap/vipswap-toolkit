@@ -9,8 +9,7 @@ import TopPanel from "./components/TopMenu/TopPanel";
 import Panel from "./components/Panel";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
-import Avatar from "./components/Avatar";
-import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+import { MENU_HEIGHT } from "./config";
 import SelectConnector from "./components/SelectConnector";
 
 const Wrapper = styled.div`
