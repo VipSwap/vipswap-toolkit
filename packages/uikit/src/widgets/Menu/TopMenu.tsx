@@ -178,7 +178,7 @@ const TopMenu: React.FC<NavProps> = ({
             />
           )}
           <UserBlock account={account} login={login} logout={logout} walletSet={walletSet}/>
-          {/*{profile && <Avatar profile={profile} />}*/}
+          {/* {profile && <Avatar profile={profile} />} */}
         </StyledFlex>
       </StyledNav>
       {!isMobile && (

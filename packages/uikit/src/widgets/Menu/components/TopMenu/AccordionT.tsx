@@ -19,7 +19,6 @@ interface Props extends PushedProps {
   icon: React.ReactElement;
   initialOpenState?: boolean;
   className?: string;
-  children: ReactNode;
   isActive?: boolean;
   iconLink: string;
   iconSize?: number;
@@ -51,7 +50,6 @@ const AccordionT: React.FC<Props> = ({
   isPushed,
   pushNav,
   initialOpenState = false,
-  children,
   className,
   isActive,
   iconLink,

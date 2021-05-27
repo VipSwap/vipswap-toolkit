@@ -59,8 +59,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
               isActive={entry.items.some((item) => item.href === location.pathname)}
               iconLink={entry.iconLink}
               iconSize={entry.iconSize}
-            >
-            </AccordionT>
+            />
           )
           return (
             <Dropdown position="bottom"  className={`menu-st-${index}`} target={dropdownMenu}>
@@ -117,8 +116,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
                   iconLink={entry.iconLink}
                   iconSize={entry.iconSize}
                   dropdownBottom={false}
-                >
-                </AccordionT>
+                />
               )
               return (
                 <Dropdown position="right" className={`menu-nd-${index}`}  target={dropdownMenu}>
