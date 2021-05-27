@@ -153,21 +153,23 @@ const TopMenu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
           webIcon={webAsset.webIcon}
         />
-        <TopPanel
-          isPushed={isPushed}
-          isMobile={isMobile}
-          showMenu={showMenu}
-          isDark={isDark}
-          toggleTheme={toggleTheme}
-          langs={langs}
-          setLang={setLang}
-          currentLang={currentLang}
-          tokenPriceUsd={tokenPriceUsd}
-          pushNav={setIsPushed}
-          links={currentLinks}
-          webAsset={webAsset}
-          socials={socials}
-        />
+        {!isMobile && (
+          <TopPanel
+            isPushed={isPushed}
+            isMobile={isMobile}
+            showMenu={showMenu}
+            isDark={isDark}
+            toggleTheme={toggleTheme}
+            langs={langs}
+            setLang={setLang}
+            currentLang={currentLang}
+            tokenPriceUsd={tokenPriceUsd}
+            pushNav={setIsPushed}
+            links={currentLinks}
+            webAsset={webAsset}
+            socials={socials}
+          />
+        )}
         <StyledFlex>
           {account && connectorSet && (
             <SelectConnector
