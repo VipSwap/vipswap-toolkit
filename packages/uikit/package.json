@@ -1,6 +1,6 @@
 {
   "name": "@vipswap/uikit",
-  "version": "0.1.12-beta.4",
+  "version": "0.1.12-beta.5",
   "description": "Set of UI components for projects",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
