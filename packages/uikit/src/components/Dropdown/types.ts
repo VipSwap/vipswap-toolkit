@@ -1,7 +1,9 @@
-export type Position = "top" | "top-right" | "bottom";
+export type Position = "top" | "top-right" | "bottom"| "left"| "right";
 
 export interface PositionProps {
   position?: Position;
+  canScroll?: boolean;
+  className?: string;
 }
 
 export interface DropdownProps extends PositionProps {

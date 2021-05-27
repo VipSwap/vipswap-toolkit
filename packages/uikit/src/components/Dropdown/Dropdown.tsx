@@ -7,6 +7,12 @@ const getLeft = ({ position }: PositionProps) => {
   if (position === "top-right") {
     return "100%";
   }
+  if (position === "left") {
+    return "auto";
+  }
+  if (position === "right") {
+    return "100%";
+  }
   return "50%";
 };
 
@@ -16,38 +22,55 @@ const getBottom = ({ position }: PositionProps) => {
   }
   return "auto";
 };
+const getTop = ({ position }: PositionProps) => {
+  if (position === "left" || position === "right") {
+    return "0";
+  }
+  return "auto";
+};
+const getRight = ({ position }: PositionProps) => {
+  if (position === "left") {
+    return "100%";
+  }
+  if (position === "right") {
+    return "auto";
+  }
+  return "auto";
+};
 
-const DropdownContent = styled.div<{ position: Position }>`
+const DropdownContent = styled.div<{ position: Position,canScroll:boolean }>`
   width: max-content;
   display: none;
   flex-direction: column;
   position: absolute;
-  transform: translate(-50%, 0);
+  transform: ${({position})=> (position === 'left'||position === 'right')?'none':'translate(-50%, 0)' };
   left: ${getLeft};
+  right: ${getRight};
+  top: ${getTop};
   bottom: ${getBottom};
   background-color: ${({ theme }) => theme.colors.navDropdownBg};
   border: ${({ theme })=> theme.colors.navDropdownBorder?`1px solid ${theme.colors.navDropdownBorder}`:'none'}
   box-shadow: ${({ theme }) => theme.shadows.level1};
-  padding: 16px;
   max-height: 500px;
-  overflow-y: auto;
+  ${({canScroll}) => canScroll? 'overflow-y: auto;': ''}
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   border-radius: ${({ theme }) => theme.radii.small};
 `;
 
-const Container = styled.div`
+const Container = styled.div<{className: string}>`
   position: relative;
-  &:hover ${DropdownContent}, &:focus-within ${DropdownContent} {
+  display: inline-block;
+  &.${({className})=>className}:hover > ${DropdownContent},
+  &.${({className})=>className}:focus-within > ${DropdownContent} {
     display: flex;
   }
 `;
 
-const Dropdown: React.FC<DropdownProps> = ({ target, position = "bottom", children }) => {
+const Dropdown: React.FC<DropdownProps> = ({ target, position = "bottom", canScroll= true,className='menu-st', children }) => {
   return (
-    <Container>
+    <Container className={className}>
       {target}
-
-      <DropdownContent position={position}>{children}</DropdownContent>
+      <DropdownContent position={position} canScroll={canScroll}>{children}</DropdownContent>
     </Container>
   );
 };

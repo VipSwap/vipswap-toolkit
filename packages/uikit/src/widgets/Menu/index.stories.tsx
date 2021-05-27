@@ -6,6 +6,7 @@ import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
 import { MenuEntry } from "./components/MenuEntry";
 import Menu from "./Menu";
+import TopMenu from "./TopMenu";
 import { LangType } from "./types";
 import { links, webAsset, socials, walletSet } from "./config";
 
@@ -261,5 +262,68 @@ export const WithSubmenuSelected: React.FC = () => {
         </div>
       </Menu>
     </MemoryRouter>
+  );
+};
+
+
+export const ConnectedTopMenu: React.FC = () => {
+  const props = useProps();
+  return (
+    <BrowserRouter>
+      <TopMenu {...props}>
+        <div>
+          <Heading as="h1" mb="8px">
+            Top Menu Page body
+          </Heading>
+          <Text as="p">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut
+          </Text>
+        </div>
+      </TopMenu>
+    </BrowserRouter>
+  );
+};
+
+export const NotConnectedTopMenu: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <TopMenu
+        account={null}
+        login={noop}
+        logout={noop}
+        isDark
+        toggleTheme={noop}
+        langs={langs}
+        setLang={noop}
+        currentLang="EN"
+        links={links}
+        webAsset={webAsset}
+        socials={socials}
+        walletSet={walletSet}
+      >
+        <div>
+          <h1>Top Menu Page body</h1>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+          eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+          mollit anim id est laborum.
+        </div>
+      </TopMenu>
+    </BrowserRouter>
   );
 };

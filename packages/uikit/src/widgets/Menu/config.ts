@@ -65,32 +65,32 @@ export const links = [
     iconLink: tradeIcon,
     iconSize: 24,
   },
-  {
-    label: "NFT",
-    icon: "NftIcon",
-    href: "/nft",
-  },
-  {
-    label: "Team Battle",
-    icon: "TeamBattleIcon",
-    href: "/competition",
-    status: status.SOON,
-  },
-  {
-    label: "Profile & Teams",
-    icon: "GroupsIcon",
-    items: [
-      {
-        label: "Leaderboard",
-        href: "/teams",
-        status: status.NEW,
-      },
-      {
-        label: "YourProfile",
-        href: "/",
-      },
-    ],
-  },
+  // {
+  //   label: "NFT",
+  //   icon: "NftIcon",
+  //   href: "/nft",
+  // },
+  // {
+  //   label: "Team Battle",
+  //   icon: "TeamBattleIcon",
+  //   href: "/competition",
+  //   status: status.SOON,
+  // },
+  // {
+  //   label: "Profile & Teams",
+  //   icon: "GroupsIcon",
+  //   items: [
+  //     {
+  //       label: "Leaderboard",
+  //       href: "/teams",
+  //       status: status.NEW,
+  //     },
+  //     {
+  //       label: "YourProfile",
+  //       href: "/",
+  //     },
+  //   ],
+  // },
   {
     label: "Info",
     icon: "InfoIcon",
