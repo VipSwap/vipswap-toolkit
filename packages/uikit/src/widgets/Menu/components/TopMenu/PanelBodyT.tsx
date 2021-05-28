@@ -21,9 +21,7 @@ const Container = styled.div`
   display: flex;
   height: 100%;
 `;
-const EmptyBox = styled.div`
-  display: none;
-`
+
 const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   const location = useLocation();
 
@@ -39,9 +37,6 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
       </MenuLink>
     </MenuEntry>
   )
-  const emptyView = (
-    <EmptyBox />
-  )
 
   return (
     <Container>
@@ -49,7 +44,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
         const Icon = Icons[entry.icon];
         const iconElement = <Icon width="24px" mr="8px" />;
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
-        if(index>= 5) return emptyView;
+        if(index>= 5) return null;
         if (entry.items) {
           const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
           const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
@@ -105,7 +100,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
             const Icon = Icons[entry.icon];
             const iconElement = <Icon width="24px" mr="8px" />;
             const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
-            if(index < 5) return emptyView;
+            if(index < 5) return null;
             if (entry.items) {
               const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
               const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
