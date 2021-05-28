@@ -80,7 +80,7 @@ const StyledFlex = styled(Flex)`
   }
 `
 
-export const TopMenu: React.FC<NavProps> = ({
+const TopMenu: React.FC<NavProps> = ({
   account,
   login,
   logout,
