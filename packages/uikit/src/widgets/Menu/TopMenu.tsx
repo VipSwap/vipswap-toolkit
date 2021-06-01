@@ -11,6 +11,7 @@ import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import { MENU_HEIGHT } from "./config";
 import SelectConnector from "./components/SelectConnector";
+import LangSelectorT from "./components/TopMenu/LangSelectorT";
 
 const Wrapper = styled.div`
   position: relative;
@@ -43,7 +44,7 @@ const BodyWrapper = styled.div`
 
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-grow: 1;
-  margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
+  margin-top: 0;
   transition: margin-top 0.2s;
   transform: translate3d(0, 0, 0);
   max-width: 100%;
@@ -78,6 +79,14 @@ const StyledFlex = styled(Flex)`
   ${({ theme }) => theme.mediaQueries.nav} {
     position: relative;
   }
+`
+const LangBox = styled.div`
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
 `
 
 const TopMenu: React.FC<NavProps> = ({
@@ -177,6 +186,9 @@ const TopMenu: React.FC<NavProps> = ({
               networkLabels={connectorSet.networkLabels}
             />
           )}
+          <LangBox>
+            <LangSelectorT currentLang={currentLang} langs={langs} setLang={setLang} />
+          </LangBox>
           <UserBlock account={account} login={login} logout={logout} walletSet={walletSet}/>
           {/* {profile && <Avatar profile={profile} />} */}
         </StyledFlex>
