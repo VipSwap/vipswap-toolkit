@@ -59,7 +59,7 @@ const MobileOnlyOverlay = styled(Overlay)`
   }
 `;
 const StyledFlex = styled(Flex)`
-  @media screen and (max-width: 420px){
+  @media screen and (max-width: 1080px){
     position: fixed;
     bottom: 0;
     left: 0;
@@ -107,7 +107,7 @@ const TopMenu: React.FC<NavProps> = ({
   walletSet,
   connectorSet
 }) => {
-  const { isXl } = useMatchBreakpoints();
+  const { isXl,isMd,isSm,isXs } = useMatchBreakpoints();
   const isMobile = isXl === false;
   // console.log('Menu isMobile', isMobile)
   // console.log('Menu currentLang', currentLang)
@@ -187,7 +187,7 @@ const TopMenu: React.FC<NavProps> = ({
             />
           )}
           <LangBox>
-            <LangSelectorT currentLang={currentLang} langs={langs} setLang={setLang} />
+            <LangSelectorT currentLang={currentLang} langs={langs} setLang={setLang} isMobile={isMobile}/>
           </LangBox>
           <UserBlock account={account} login={login} logout={logout} walletSet={walletSet}/>
           {/* {profile && <Avatar profile={profile} />} */}

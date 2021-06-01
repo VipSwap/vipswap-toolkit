@@ -15,11 +15,12 @@ interface Props {
   currentLang: string;
   langs: Language[];
   setLang: (lang: Language) => void;
+  isMobile?: boolean;
 }
 
-const LangSelectorT: React.FC<Props> = ({ currentLang, langs, setLang }) => (
+const LangSelectorT: React.FC<Props> = ({ currentLang, langs, setLang, isMobile=false }) => (
   <Dropdown
-    position="bottom"
+    position={isMobile?"top":"bottom"}
     target={
       <Button scale={scales.XS} variant="text" startIcon={<LanguageIcon color="navText" width="24px" />}>
         <Text color="navText">{currentLang?.toUpperCase()}</Text>
@@ -40,4 +41,4 @@ const LangSelectorT: React.FC<Props> = ({ currentLang, langs, setLang }) => (
   </Dropdown>
 );
 
-export default React.memo(LangSelectorT, (prev, next) => prev.currentLang === next.currentLang);
+export default React.memo(LangSelectorT, (prev, next) => prev.currentLang === next.currentLang && prev.isMobile === next.isMobile);
