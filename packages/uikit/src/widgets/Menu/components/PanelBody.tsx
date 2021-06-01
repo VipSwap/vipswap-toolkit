@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
+import SVG from "react-inlinesvg";
 import { SvgProps } from "../../../components/Svg";
+import { PanelProps, PushedProps } from "../types";
 import * as IconModule from "../icons";
 import Accordion from "./Accordion";
 import { MenuEntry, LinkLabel, LinkStatus, LinkLabelStatus } from "./MenuEntry";
 import MenuLink from "./MenuLink";
-import { PanelProps, PushedProps } from "../types";
-import SVG from "react-inlinesvg";
 
 interface Props extends PanelProps, PushedProps {
   isMobile: boolean;

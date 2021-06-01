@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import PanelBodyT from "./PanelBodyT";
 import { PanelProps, PushedProps } from "../../types";
+import PanelBodyT from "./PanelBodyT";
 
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean;
