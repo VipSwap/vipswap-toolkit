@@ -6,7 +6,7 @@ import Flex from "../../components/Box/Flex";
 import { useMatchBreakpoints } from "../../hooks";
 import LogoT from "./components/TopMenu/LogoT";
 import {default as TopPanel} from "./components/TopMenu/TopPanel";
-import {default as Panel} from "./components/Panel";
+import {default as PanelT} from "./components/TopMenu/PanelT";
 import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import { MENU_HEIGHT } from "./config";
@@ -202,7 +202,7 @@ const TopMenu: React.FC<NavProps> = ({
       )}
       {isMobile && (
         <BodyWrapper>
-          <Panel
+          <PanelT
             isPushed={isPushed}
             isMobile={isMobile}
             showMenu={showMenu}
