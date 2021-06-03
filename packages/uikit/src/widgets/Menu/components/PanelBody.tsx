@@ -73,7 +73,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
         }
         return (
           <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass}>
-            <MenuLink href={entry.href} {...{hash: item.hash}} onClick={handleClick}>
+            <MenuLink href={entry.href} {...{hash: entry.hash}} onClick={handleClick}>
               {/*{iconElement}*/}
               {entry.iconLink?(
                 <SVG src={entry.iconLink} width={entry.iconSize} style={{marginRight: '8px', flexShrink: 0}} />
