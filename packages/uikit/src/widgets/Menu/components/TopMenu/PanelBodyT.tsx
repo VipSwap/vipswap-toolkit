@@ -30,8 +30,13 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
     // Sometimes a URL like #/foo#bar will be encoded as #/foo%23bar
     const scrollToAnchor = () => {
       if(hash){
-        const anchorElement = document.getElementById(hash);
-        if(anchorElement) { anchorElement.scrollIntoView(); }
+        const hashParts = hash.split('#');
+        if (hashParts.length >= 2) {
+          const id = hashParts.slice(-1)[0];
+          const anchorElement = document.getElementById(id);
+          if(anchorElement) { anchorElement.scrollIntoView(); }
+          // document.querySelector(`#${hash}`).scrollIntoView();
+        }
       }
     };
     scrollToAnchor();

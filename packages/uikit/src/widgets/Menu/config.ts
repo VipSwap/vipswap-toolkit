@@ -28,6 +28,14 @@ export const links = [
     iconSize: 24,
   },
   {
+    label: "Home#about",
+    icon: "HomeIcon",
+    href: "/#about",
+    hash: "#about",
+    iconLink: tradeIcon,
+    iconSize: 24,
+  },
+  {
     label: "Trade",
     icon: "TradeIcon",
     items: [

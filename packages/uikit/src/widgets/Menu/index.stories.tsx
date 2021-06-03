@@ -289,6 +289,10 @@ export const ConnectedTopMenu: React.FC = () => {
             exercitation ullamco laboris nisi ut
           </Text>
         </div>
+        <div style={{width: '100%',height: '700px',background: '#f24a65'}}></div>
+        <div id="about" style={{background: '#009fc4'}}>
+          about
+        </div>
       </TopMenu>
     </BrowserRouter>
   );
