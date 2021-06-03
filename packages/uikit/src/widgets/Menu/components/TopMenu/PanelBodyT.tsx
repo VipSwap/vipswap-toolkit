@@ -48,7 +48,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
   const handleClick = isMobile ? () => {
     pushNav(false)
     componentDidMount()
-  }: componentDidMount();
+  } : ()=>componentDidMount();
 
   const moreBtn = (
     <MenuEntry key={'moreBtn'} isActive={false} >
