@@ -54,7 +54,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
 
   const moreBtn = (
     <MenuEntry key={'moreBtn'} isActive={false} >
-      <MenuLink href={'javascript:void(0)'}>
+      <MenuLink href="#" onClick={()=>{return false}}>
         <LinkLabelStatus isPushed={isPushed} isActive={false}>
           <MoreHoriz />
         </LinkLabelStatus>
