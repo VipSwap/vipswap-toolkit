@@ -19,25 +19,30 @@ const HelpLink = styled(Link)`
   align-items: center;
   margin-top: 24px;
 `;
-
+const StyledBody = styled.div`
+  height: 300px;
+  overflow-y: auto;
+`
 const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, helpLink }) => (
   <Modal title="Connect to a wallet" onDismiss={onDismiss}>
-    {config.map((entry, index) => (
-      <WalletCard
-        key={entry.title}
-        login={login}
-        walletConfig={entry}
-        onDismiss={onDismiss}
-        mb={index < config.length - 1 ? "8px" : "0"}
-      />
-    ))}
-    <HelpLink
-      href={helpLink?helpLink:'https://ethereum.org/wallets/'}
-      external
-    >
-      <HelpIcon color="primary" mr="6px" />
-      Learn how to connect
-    </HelpLink>
+    <StyledBody>
+      {config.map((entry, index) => (
+        <WalletCard
+          key={entry.title}
+          login={login}
+          walletConfig={entry}
+          onDismiss={onDismiss}
+          mb={index < config.length - 1 ? "8px" : "0"}
+        />
+      ))}
+      <HelpLink
+        href={helpLink?helpLink:'https://ethereum.org/wallets/'}
+        external
+      >
+        <HelpIcon color="primary" mr="6px" />
+        Learn how to connect
+      </HelpLink>
+    </StyledBody>
   </Modal>
 );
 
