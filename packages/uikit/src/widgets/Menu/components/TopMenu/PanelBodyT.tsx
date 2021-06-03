@@ -25,30 +25,27 @@ const Container = styled.div`
 const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   const location = useLocation();
 
-  const componentDidMount = ()=>{
+  const componentDidMount = (hash?:string)=>{
     // Decode entities in the URL
     // Sometimes a URL like #/foo#bar will be encoded as #/foo%23bar
-    window.location.hash = window.decodeURIComponent(window.location.hash);
     const scrollToAnchor = () => {
-      const hashParts = window.location.hash.split('#');
-      console.log('hashParts', hashParts)
-      console.log('hashParts', hashParts.length)
-      if (hashParts.length >= 2) {
-        const hash = hashParts.slice(-1)[0];
-        console.log('hash', hash)
+      if(hash){
         const anchorElement = document.getElementById(hash);
         if(anchorElement) { anchorElement.scrollIntoView(); }
-        // document.querySelector(`#${hash}`).scrollIntoView();
       }
     };
     scrollToAnchor();
     window.onhashchange = scrollToAnchor;
+    if(isMobile){
+      pushNav(false)
+    }
   }
   // Close the menu when a user clicks a link on mobile
   const handleClick = isMobile ? () => {
     pushNav(false)
     componentDidMount()
   } : ()=>componentDidMount();
+
 
   const moreBtn = (
     <MenuEntry key={'moreBtn'} isActive={false} >
@@ -91,7 +88,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
           return (
             <Dropdown position="bottom"  className={`menu-st-${index}`} target={dropdownMenu}>
               {entry.items.map((item) => (
-                <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={handleClick}>
+                <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={()=>componentDidMount(item.hash)}>
                   <MenuLink href={item.href} {...{hash: item.hash}}>
                     <LinkLabelStatus isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
                     {item.status && (
@@ -107,7 +104,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
         }
         return (
           <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass}>
-            <MenuLink href={entry.href} {...{hash: entry.hash}} onClick={handleClick}>
+            <MenuLink href={entry.href} {...{hash: entry.hash}} onClick={()=>componentDidMount(entry.hash)}>
               <LinkLabelStatus isPushed={isPushed} isActive={entry.href === currentPath}>{entry.label}</LinkLabelStatus>
               {entry.status && (
                 <LinkStatus color={entry.status.color} fontSize="14px">
@@ -150,7 +147,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
               return (
                 <Dropdown position="right" className={`menu-nd-${index}`}  target={dropdownMenu}>
                   {entry.items.map((item) => (
-                    <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={handleClick}>
+                    <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={()=>componentDidMount(item.hash)}>
                       <MenuLink {...{hash: item.hash}} href={item.href}>
                         <LinkLabelStatus isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
                         {item.status && (
@@ -166,7 +163,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
             }
             return (
               <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass}>
-                <MenuLink href={entry.href} {...{hash: entry.hash}} onClick={handleClick}>
+                <MenuLink href={entry.href} {...{hash: entry.hash}} onClick={()=>componentDidMount(entry.hash)}>
                   <LinkLabelStatus isPushed={isPushed} isActive={entry.href === currentPath}>{entry.label}</LinkLabelStatus>
                   {entry.status && (
                     <LinkStatus color={entry.status.color} fontSize="14px">
