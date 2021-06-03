@@ -38,6 +38,7 @@ export interface LinkStatus {
 export interface MenuSubEntry {
   label: string;
   href: string;
+  hash?: string;
   calloutClass?: string;
   status?: LinkStatus;
   labelStringId?: string;
@@ -48,6 +49,7 @@ export interface MenuEntry {
   icon: string;
   items?: MenuSubEntry[];
   href?: string;
+  hash?: string;
   calloutClass?: string;
   initialOpenState?: boolean;
   status?: LinkStatus;

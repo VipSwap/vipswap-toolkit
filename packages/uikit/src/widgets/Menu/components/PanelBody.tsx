@@ -58,7 +58,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               {isPushed &&
                 entry.items.map((item) => (
                   <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={handleClick}>
-                    <MenuLink href={item.href}>
+                    <MenuLink href={item.href} {...{hash: item.hash}}>
                       <LinkLabelStatus isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
                       {item.status && (
                         <LinkStatus color={item.status.color} fontSize="14px">
@@ -73,7 +73,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
         }
         return (
           <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass}>
-            <MenuLink href={entry.href} onClick={handleClick}>
+            <MenuLink href={entry.href} {...{hash: item.hash}} onClick={handleClick}>
               {/*{iconElement}*/}
               {entry.iconLink?(
                 <SVG src={entry.iconLink} width={entry.iconSize} style={{marginRight: '8px', flexShrink: 0}} />

@@ -70,7 +70,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
             <Dropdown position="bottom"  className={`menu-st-${index}`} target={dropdownMenu}>
               {entry.items.map((item) => (
                 <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={handleClick}>
-                  <MenuLink href={item.href}>
+                  <MenuLink href={item.href} {...{hash: item.hash}}>
                     <LinkLabelStatus isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
                     {item.status && (
                       <LinkStatus color={item.status.color} fontSize="14px">
@@ -85,7 +85,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
         }
         return (
           <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass}>
-            <MenuLink href={entry.href} onClick={handleClick}>
+            <MenuLink href={entry.href} {...{hash: item.hash}} onClick={handleClick}>
               <LinkLabelStatus isPushed={isPushed} isActive={entry.href === currentPath}>{entry.label}</LinkLabelStatus>
               {entry.status && (
                 <LinkStatus color={entry.status.color} fontSize="14px">
@@ -129,7 +129,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
                 <Dropdown position="right" className={`menu-nd-${index}`}  target={dropdownMenu}>
                   {entry.items.map((item) => (
                     <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={handleClick}>
-                      <MenuLink href={item.href}>
+                      <MenuLink {...{hash: item.hash}} href={item.href}>
                         <LinkLabelStatus isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
                         {item.status && (
                           <LinkStatus color={item.status.color} fontSize="14px">
@@ -144,7 +144,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
             }
             return (
               <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass}>
-                <MenuLink href={entry.href} onClick={handleClick}>
+                <MenuLink href={entry.href} {...{hash: item.hash}} onClick={handleClick}>
                   <LinkLabelStatus isPushed={isPushed} isActive={entry.href === currentPath}>{entry.label}</LinkLabelStatus>
                   {entry.status && (
                     <LinkStatus color={entry.status.color} fontSize="14px">
