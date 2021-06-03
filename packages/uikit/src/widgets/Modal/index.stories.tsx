@@ -15,7 +15,7 @@ interface CustomModalProps extends InjectedProps {
 }
 
 const CustomModal: React.FC<CustomModalProps> = ({ title, onDismiss }) => (
-  <Modal title={title} onDismiss={onDismiss}>
+  <Modal headerBackground="#f24a65" title={title} onDismiss={onDismiss}>
     <Heading>{title}</Heading>
     <Button>This button Does nothing</Button>
   </Modal>
