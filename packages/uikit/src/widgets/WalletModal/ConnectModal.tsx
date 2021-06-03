@@ -20,6 +20,7 @@ const HelpLink = styled(Link)`
   margin-top: 24px;
 `;
 const StyledBody = styled.div`
+  width: 300px;
   height: 300px;
   overflow-y: auto;
 `
