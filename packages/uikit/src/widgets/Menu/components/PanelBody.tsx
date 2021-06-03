@@ -35,7 +35,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
         const Icon = Icons[entry.icon];
         const iconElement = <Icon width="24px" mr="8px" />;
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
-        const currentPath = location.hash?`${location.pathname}#${location.hash}`:location.pathname
+        const currentPath = location.hash?`${location.pathname}${location.hash}`:location.pathname
 
         if (entry.items) {
           // const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
