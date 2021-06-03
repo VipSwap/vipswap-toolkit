@@ -28,9 +28,9 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
   const componentDidMount = ()=>{
     // Decode entities in the URL
     // Sometimes a URL like #/foo#bar will be encoded as #/foo%23bar
-    // location.hash = window.decodeURIComponent(location.hash);
+    window.location.hash = window.decodeURIComponent(window.location.hash);
     const scrollToAnchor = () => {
-      const hashParts = location.hash.split('#');
+      const hashParts = window.location.hash.split('#');
       console.log('hashParts', hashParts)
       console.log('hashParts', hashParts.length)
       if (hashParts.length >= 2) {
