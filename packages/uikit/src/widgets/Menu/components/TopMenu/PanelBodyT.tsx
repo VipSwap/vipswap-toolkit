@@ -25,8 +25,30 @@ const Container = styled.div`
 const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   const location = useLocation();
 
+  const componentDidMount = ()=>{
+    // Decode entities in the URL
+    // Sometimes a URL like #/foo#bar will be encoded as #/foo%23bar
+    // location.hash = window.decodeURIComponent(location.hash);
+    const scrollToAnchor = () => {
+      const hashParts = location.hash.split('#');
+      console.log('hashParts', hashParts)
+      console.log('hashParts', hashParts.length)
+      if (hashParts.length >= 2) {
+        const hash = hashParts.slice(-1)[0];
+        console.log('hash', hash)
+        const anchorElement = document.getElementById(hash);
+        if(anchorElement) { anchorElement.scrollIntoView(); }
+        // document.querySelector(`#${hash}`).scrollIntoView();
+      }
+    };
+    scrollToAnchor();
+    window.onhashchange = scrollToAnchor;
+  }
   // Close the menu when a user clicks a link on mobile
-  const handleClick = isMobile ? () => pushNav(false) : undefined;
+  const handleClick = isMobile ? () => {
+    pushNav(false)
+    componentDidMount()
+  }: componentDidMount();
 
   const moreBtn = (
     <MenuEntry key={'moreBtn'} isActive={false} >
