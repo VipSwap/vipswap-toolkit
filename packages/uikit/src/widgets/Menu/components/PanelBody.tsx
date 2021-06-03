@@ -25,6 +25,26 @@ const Container = styled.div`
 
 const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   const location = useLocation();
+  const componentDidMount = (hash?:string)=>{
+    // Decode entities in the URL
+    // Sometimes a URL like #/foo#bar will be encoded as #/foo%23bar
+    const scrollToAnchor = () => {
+      if(hash){
+        const hashParts = hash.split('#');
+        if (hashParts.length >= 2) {
+          const id = hashParts.slice(-1)[0];
+          const anchorElement = document.getElementById(id);
+          if(anchorElement) { anchorElement.scrollIntoView(); }
+          // document.querySelector(`#${hash}`).scrollIntoView();
+        }
+      }
+    };
+    scrollToAnchor();
+    window.onhashchange = scrollToAnchor;
+    if(isMobile){
+      pushNav(false)
+    }
+  }
 
   // Close the menu when a user clicks a link on mobile
   const handleClick = isMobile ? () => pushNav(false) : undefined;
@@ -57,7 +77,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
             >
               {isPushed &&
                 entry.items.map((item) => (
-                  <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={handleClick}>
+                  <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={()=>componentDidMount(item.hash)}>
                     <MenuLink href={item.href} {...{hash: item.hash}}>
                       <LinkLabelStatus isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
                       {item.status && (
@@ -73,7 +93,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
         }
         return (
           <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass}>
-            <MenuLink href={entry.href} {...{hash: entry.hash}} onClick={handleClick}>
+            <MenuLink href={entry.href} {...{hash: entry.hash}} onClick={()=>componentDidMount(entry.hash)}>
               {/*{iconElement}*/}
               {entry.iconLink?(
                 <SVG src={entry.iconLink} width={entry.iconSize} style={{marginRight: '8px', flexShrink: 0}} />
