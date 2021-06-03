@@ -35,9 +35,11 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
         const Icon = Icons[entry.icon];
         const iconElement = <Icon width="24px" mr="8px" />;
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
+        const currentPath = location.hash?`${location.pathname}#${location.hash}`:location.pathname
 
         if (entry.items) {
-          const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
+          // const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
+          const itemsMatchIndex = entry.items.findIndex((item) => item.href === currentPath);
           const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
 
           return (
@@ -49,15 +51,15 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               label={entry.label}
               initialOpenState={initialOpenState}
               className={calloutClass}
-              isActive={entry.items.some((item) => item.href === location.pathname)}
+              isActive={entry.items.some((item) => item.href === currentPath)}
               iconLink={entry.iconLink}
               iconSize={entry.iconSize}
             >
               {isPushed &&
                 entry.items.map((item) => (
-                  <MenuEntry key={item.href} secondary isActive={item.href === location.pathname} onClick={handleClick}>
+                  <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={handleClick}>
                     <MenuLink href={item.href}>
-                      <LinkLabelStatus isPushed={isPushed} isActive={item.href === location.pathname} >{item.label}</LinkLabelStatus>
+                      <LinkLabelStatus isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
                       {item.status && (
                         <LinkStatus color={item.status.color} fontSize="14px">
                           {item.status.text}
@@ -70,13 +72,13 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
           );
         }
         return (
-          <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
+          <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass}>
             <MenuLink href={entry.href} onClick={handleClick}>
               {/*{iconElement}*/}
               {entry.iconLink?(
                 <SVG src={entry.iconLink} width={entry.iconSize} style={{marginRight: '8px', flexShrink: 0}} />
               ):null}
-              <LinkLabelStatus isPushed={isPushed} isActive={entry.href === location.pathname}>{entry.label}</LinkLabelStatus>
+              <LinkLabelStatus isPushed={isPushed} isActive={entry.href === currentPath}>{entry.label}</LinkLabelStatus>
               {entry.status && (
                 <LinkStatus color={entry.status.color} fontSize="14px">
                   {entry.status.text}

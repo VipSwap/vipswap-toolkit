@@ -45,8 +45,10 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
         const iconElement = <Icon width="24px" mr="8px" />;
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
         if(index>= 5) return null;
+        const currentPath = location.hash?`${location.pathname}#${location.hash}`:location.pathname
         if (entry.items) {
-          const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
+          // const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
+          const itemsMatchIndex = entry.items.findIndex((item) => item.href === currentPath);
           const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
           const dropdownMenu = (
             <AccordionT
@@ -57,7 +59,8 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
               label={entry.label}
               initialOpenState={initialOpenState}
               className={calloutClass}
-              isActive={entry.items.some((item) => item.href === location.pathname)}
+              // isActive={entry.items.some((item) => item.href === location.pathname)}
+              isActive={entry.items.some((item) => item.href === currentPath)}
               iconLink={entry.iconLink}
               iconSize={entry.iconSize}
             />
@@ -65,9 +68,9 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
           return (
             <Dropdown position="bottom"  className={`menu-st-${index}`} target={dropdownMenu}>
               {entry.items.map((item) => (
-                <MenuEntry key={item.href} secondary isActive={item.href === location.pathname} onClick={handleClick}>
+                <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={handleClick}>
                   <MenuLink href={item.href}>
-                    <LinkLabelStatus isPushed={isPushed} isActive={item.href === location.pathname} >{item.label}</LinkLabelStatus>
+                    <LinkLabelStatus isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
                     {item.status && (
                       <LinkStatus color={item.status.color} fontSize="14px">
                         {item.status.text}
@@ -80,9 +83,9 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
           );
         }
         return (
-          <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
+          <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass}>
             <MenuLink href={entry.href} onClick={handleClick}>
-              <LinkLabelStatus isPushed={isPushed} isActive={entry.href === location.pathname}>{entry.label}</LinkLabelStatus>
+              <LinkLabelStatus isPushed={isPushed} isActive={entry.href === currentPath}>{entry.label}</LinkLabelStatus>
               {entry.status && (
                 <LinkStatus color={entry.status.color} fontSize="14px">
                   {entry.status.text}
@@ -100,6 +103,8 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
             const Icon = Icons[entry.icon];
             const iconElement = <Icon width="24px" mr="8px" />;
             const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
+            const currentPath = location.hash?`${location.pathname}#${location.hash}`:location.pathname
+
             if(index < 5) return null;
             if (entry.items) {
               const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
@@ -113,7 +118,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
                   label={entry.label}
                   initialOpenState={initialOpenState}
                   className={calloutClass}
-                  isActive={entry.items.some((item) => item.href === location.pathname)}
+                  isActive={entry.items.some((item) => item.href === currentPath)}
                   iconLink={entry.iconLink}
                   iconSize={entry.iconSize}
                   dropdownBottom={false}
@@ -122,9 +127,9 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
               return (
                 <Dropdown position="right" className={`menu-nd-${index}`}  target={dropdownMenu}>
                   {entry.items.map((item) => (
-                    <MenuEntry key={item.href} secondary isActive={item.href === location.pathname} onClick={handleClick}>
+                    <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={handleClick}>
                       <MenuLink href={item.href}>
-                        <LinkLabelStatus isPushed={isPushed} isActive={item.href === location.pathname} >{item.label}</LinkLabelStatus>
+                        <LinkLabelStatus isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
                         {item.status && (
                           <LinkStatus color={item.status.color} fontSize="14px">
                             {item.status.text}
@@ -137,9 +142,9 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => 
               );
             }
             return (
-              <MenuEntry key={entry.label} isActive={entry.href === location.pathname} className={calloutClass}>
+              <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass}>
                 <MenuLink href={entry.href} onClick={handleClick}>
-                  <LinkLabelStatus isPushed={isPushed} isActive={entry.href === location.pathname}>{entry.label}</LinkLabelStatus>
+                  <LinkLabelStatus isPushed={isPushed} isActive={entry.href === currentPath}>{entry.label}</LinkLabelStatus>
                   {entry.status && (
                     <LinkStatus color={entry.status.color} fontSize="14px">
                       {entry.status.text}
