@@ -52,8 +52,9 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   return (
     <Container>
       {links.map((entry) => {
-        const Icon = Icons[entry.icon];
-        const iconElement = <Icon width="24px" mr="8px" />;
+        // const Icon = Icons[entry.icon];
+        // const iconElement = <Icon width="24px" mr="8px" />;
+        const iconElement = <div />;
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
         const currentPath = location.hash?`${location.pathname}${location.hash}`:location.pathname
 

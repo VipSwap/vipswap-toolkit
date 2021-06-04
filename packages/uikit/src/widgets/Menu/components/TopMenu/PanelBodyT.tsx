@@ -65,8 +65,9 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
   return (
     <Container>
       {links.map((entry,index) => {
-        const Icon = Icons[entry.icon];
-        const iconElement = <Icon width="24px" mr="8px" />;
+        // const Icon = Icons[entry.icon];
+        // const iconElement = <Icon width="24px" mr="8px" />;
+        const iconElement = <div />;
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
         if(index>= 5) return null;
         const currentPath = location.hash?`${location.pathname}${location.hash}`:location.pathname
@@ -91,13 +92,13 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
             />
           )
           return (
-            <Dropdown position="bottom"  className={`menu-st-${index}`} target={dropdownMenu}>
-              {entry.items.map((item) => (
-                <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={()=>componentDidMount(item.hash)}>
-                  <MenuLink href={item.href} {...{hash: item.hash}}>
-                    <LinkLabelStatus isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
+            <Dropdown key={`dropdown${index}`} position="bottom"  className={`menu-st-${index}`} target={dropdownMenu}>
+              {entry.items.map((item,itemIndex) => (
+                <MenuEntry key={`MenuEntry${index}-${itemIndex}`} secondary isActive={item.href === currentPath} onClick={()=>componentDidMount(item.hash)}>
+                  <MenuLink key={`MenuLink${index}-${itemIndex}`} href={item.href} {...{hash: item.hash}}>
+                    <LinkLabelStatus key={`LinkLabelStatus${index}-${itemIndex}`} isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
                     {item.status && (
-                      <LinkStatus color={item.status.color} fontSize="14px">
+                      <LinkStatus  key={`LinkStatus${index}-${itemIndex}`} color={item.status.color} fontSize="14px">
                         {item.status.text}
                       </LinkStatus>
                     )}
@@ -123,10 +124,11 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
 
       {/* 菜单超出5个 超出部分进行合并 显示更多菜单 */}
       { links.length > 5 && (
-        <Dropdown position="bottom" className={`menu-st-more`} canScroll={false} target={moreBtn}>
+        <Dropdown key={`moreMenu`} position="bottom" className={`menu-st-more`} canScroll={false} target={moreBtn}>
           {links.map((entry,index) => {
-            const Icon = Icons[entry.icon];
-            const iconElement = <Icon width="24px" mr="8px" />;
+            // const Icon = Icons[entry.icon];
+            // const iconElement = <Icon width="24px" mr="8px" />;
+            const iconElement = <div />;
             const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
             const currentPath = location.hash?`${location.pathname}${location.hash}`:location.pathname
 
@@ -150,13 +152,13 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
                 />
               )
               return (
-                <Dropdown position="right" className={`menu-nd-${index}`}  target={dropdownMenu}>
-                  {entry.items.map((item) => (
-                    <MenuEntry key={item.href} secondary isActive={item.href === currentPath} onClick={()=>componentDidMount(item.hash)}>
-                      <MenuLink {...{hash: item.hash}} href={item.href}>
-                        <LinkLabelStatus isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
+                <Dropdown  key={`Dropdown${index}`} position="right" className={`menu-nd-${index}`}  target={dropdownMenu}>
+                  {entry.items.map((item,itemIndex) => (
+                    <MenuEntry  key={`MenuEntry${index}-${itemIndex}`}  secondary isActive={item.href === currentPath} onClick={()=>componentDidMount(item.hash)}>
+                      <MenuLink  key={`MenuLink${index}-${itemIndex}`} {...{hash: item.hash}} href={item.href}>
+                        <LinkLabelStatus  key={`LinkLabelStatus${index}-${itemIndex}`}  isPushed={isPushed} isActive={item.href === currentPath} >{item.label}</LinkLabelStatus>
                         {item.status && (
-                          <LinkStatus color={item.status.color} fontSize="14px">
+                          <LinkStatus  key={`LinkStatus${index}-${itemIndex}`}  color={item.status.color} fontSize="14px">
                             {item.status.text}
                           </LinkStatus>
                         )}

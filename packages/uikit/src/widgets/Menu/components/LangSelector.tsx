@@ -27,7 +27,7 @@ const LangSelector: React.FC<Props> = ({ currentLang, langs, setLang }) => (
   >
     {langs.map((lang) => (
       <MenuButton
-        key={lang.locale}
+        key={lang.code}
         fullWidth
         onClick={() => setLang(lang)}
         // Safari fix
