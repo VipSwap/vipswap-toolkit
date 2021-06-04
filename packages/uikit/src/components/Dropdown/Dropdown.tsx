@@ -38,7 +38,7 @@ const getRight = ({ position }: PositionProps) => {
   return "auto";
 };
 
-const DropdownContent = styled.div<{ position: Position,canScroll:boolean,className: string }>`
+const DropdownContent = styled.div<{ position: Position,canScroll:boolean,isCollect?: boolean }>`
   width: max-content;
   display: none;
   flex-direction: column;
@@ -56,16 +56,12 @@ const DropdownContent = styled.div<{ position: Position,canScroll:boolean,classN
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   border-radius: ${({ theme }) => theme.radii.small};
   
-  &.${({className})=>className}:focus-within > * {
-    display: none;
-  }
 `;
 
 const Container = styled.div<{className: string}>`
   position: relative;
   display: inline-block;
-  &.${({className})=>className}:hover > ${DropdownContent},
-  &.${({className})=>className}:focus-within > ${DropdownContent} {
+  &.${({className})=>className}:hover > ${DropdownContent}{
     display: flex;
   }
 `;
@@ -74,7 +70,7 @@ const Dropdown: React.FC<DropdownProps> = ({ target, position = "bottom", canScr
   return (
     <Container className={className}>
       {target}
-      <DropdownContent className={`${className}-dc`} position={position} canScroll={canScroll}>{children}</DropdownContent>
+      <DropdownContent position={position} canScroll={canScroll}>{children}</DropdownContent>
     </Container>
   );
 };

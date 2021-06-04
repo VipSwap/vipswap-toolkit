@@ -22,7 +22,7 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
+const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
   const location = useLocation();
 
   const componentDidMount = (hash?:string)=>{
