@@ -38,7 +38,7 @@ const getRight = ({ position }: PositionProps) => {
   return "auto";
 };
 
-const DropdownContent = styled.div<{ position: Position,canScroll:boolean }>`
+const DropdownContent = styled.div<{ position: Position,canScroll:boolean,className: string }>`
   width: max-content;
   display: none;
   flex-direction: column;
@@ -55,6 +55,10 @@ const DropdownContent = styled.div<{ position: Position,canScroll:boolean }>`
   ${({canScroll}) => canScroll? 'overflow-y: auto;': ''}
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   border-radius: ${({ theme }) => theme.radii.small};
+  
+  &.${({className})=>className}:focus-within > * {
+    display: none;
+  }
 `;
 
 const Container = styled.div<{className: string}>`
@@ -70,7 +74,7 @@ const Dropdown: React.FC<DropdownProps> = ({ target, position = "bottom", canScr
   return (
     <Container className={className}>
       {target}
-      <DropdownContent position={position} canScroll={canScroll}>{children}</DropdownContent>
+      <DropdownContent className={`${className}-dc`} position={position} canScroll={canScroll}>{children}</DropdownContent>
     </Container>
   );
 };
