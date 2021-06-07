@@ -1,13 +1,15 @@
 import { LinkStatus } from "./types";
 import tradeIcon from "./icons/1.svg";
-import TelegramIcon from "./icons/1.svg"
-import TwitterIcon from "./icons/1.svg"
-import React from "react";
+import TelegramIcon from "./icons/1.svg";
+import TwitterIcon from "./icons/1.svg";
+// @ts-ignore
+import QRTest from './icons/qr-test.png';
 
 export const status = {
   LIVE: <LinkStatus>{
     text: "LIVE",
-    color: "failure",
+    color: "white",
+    bgColor: "linear-gradient(140deg, #11EBFE 0%, #754BF9 70%)",
   },
   SOON: <LinkStatus>{
     text: "SOON",
@@ -207,7 +209,52 @@ export const walletSet = {
   scanLink: 'https://bscscan.com/address/',
   helpLink: 'https://ethereum.org/wallets/'
 }
+export const contactList = [
+  {
+    href: "https://www.baidu.com",
+    iconLink: tradeIcon,
+    iconSize: 24,
+    isTooltip: true,
+    tooltipContent: QRTest,
+    isPhoto: true,
+  },
+  {
+    href: "https://www.baidu.com",
+    iconLink: tradeIcon,
+    iconSize: 24,
+    isTooltip: true,
+    tooltipContent: "12312312",
+    isPhoto: false,
+  },
+  {
+    href: "https://www.baidu.com",
+    iconLink: tradeIcon,
+    iconSize: 24,
+    isTooltip: false,
+    tooltipContent: "",
+    isPhoto: false,
+  },
+  {
+    href: "https://www.baidu.com",
+    iconLink: tradeIcon,
+    iconSize: 24,
+    isTooltip: false,
+    tooltipContent: "",
+    isPhoto: false,
+
+  },
+  {
+    href: "https://www.baidu.com",
+    iconLink: tradeIcon,
+    iconSize: 24,
+    isTooltip: false,
+    tooltipContent: "",
+    isPhoto: false,
+
+  },
+]
 export const MENU_HEIGHT = 64;
 export const MENU_ENTRY_HEIGHT = 48;
+export const MENU_ENTRY_HEIGHT_2 = 36;
 export const SIDEBAR_WIDTH_FULL = 240;
 export const SIDEBAR_WIDTH_REDUCED = 56;

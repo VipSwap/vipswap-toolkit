@@ -33,6 +33,7 @@ export interface NavTheme {
 export interface LinkStatus {
   text: string;
   color: keyof Colors;
+  bgColor?: string;
 }
 
 export interface MenuSubEntry {
@@ -89,11 +90,23 @@ export interface ConnectorSet {
   chainId: number;
   networkLabels: { [index:number]: string }
 }
-export interface NavProps extends PanelProps {
+export interface NavProps extends PanelProps,ContactList {
   account?: string;
   login: Login;
   profile?: Profile;
   logout: () => void;
   walletSet?: any;
   connectorSet?: ConnectorSet;
+}
+export interface ContactItem {
+  iconLink: string;
+  iconSize?: number;
+  href: string;
+  isTooltip: boolean;
+  isPhoto:boolean;
+  tooltipContent: string;
+}
+export interface ContactList {
+  contactList: Array<ContactItem>;
+  contactFlex: 'row' | 'column';
 }

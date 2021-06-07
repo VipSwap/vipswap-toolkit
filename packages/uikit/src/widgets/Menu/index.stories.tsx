@@ -7,8 +7,9 @@ import Text from "../../components/Text/Text";
 import { MenuEntry } from "./components/MenuEntry";
 import Menu from "./Menu";
 import TopMenu from "./TopMenu";
+import {default as LuckyCatMenu} from "./menuTheme/luckyCat/Menu"
 import { LangType } from "./types";
-import { links, webAsset, socials, walletSet } from "./config";
+import { links, webAsset, socials, walletSet,contactList } from "./config";
 
 export default {
   title: "Widgets/Menu",
@@ -34,7 +35,8 @@ const useProps = () => {
     profile: null,
     webAsset,
     socials,
-    walletSet
+    walletSet,
+    contactList,
   });
 
   useEffect(() => {
@@ -53,7 +55,8 @@ const useProps = () => {
         profile: null,
         webAsset,
         socials,
-        walletSet
+        walletSet,
+        contactList,
       });
     }, 2000);
     return () => {
@@ -328,6 +331,74 @@ export const NotConnectedTopMenu: React.FC = () => {
           mollit anim id est laborum.
         </div>
       </TopMenu>
+    </BrowserRouter>
+  );
+};
+
+
+export const ConnectedLuckyCatMenu: React.FC = () => {
+  const props = useProps();
+  return (
+    <BrowserRouter>
+      <LuckyCatMenu {...props}>
+        <div>
+          <Heading as="h1" mb="8px">
+            Top Menu Page body
+          </Heading>
+          <Text as="p">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut
+          </Text>
+        </div>
+        <div style={{width: '100%',height: '700px',background: '#f24a65'}}></div>
+        <div id="about" style={{background: '#009fc4'}}>
+          about
+        </div>
+      </LuckyCatMenu>
+    </BrowserRouter>
+  );
+};
+
+export const NotConnectedLuckyCatMenu: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <LuckyCatMenu
+        account={null}
+        login={noop}
+        logout={noop}
+        isDark
+        toggleTheme={noop}
+        langs={langs}
+        setLang={noop}
+        currentLang="EN"
+        links={links}
+        webAsset={webAsset}
+        socials={socials}
+        walletSet={walletSet}
+        contactList={contactList}
+      >
+        <div>
+          <h1>Top Menu Page body</h1>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+          eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+          mollit anim id est laborum.
+        </div>
+      </LuckyCatMenu>
     </BrowserRouter>
   );
 };
