@@ -17,18 +17,9 @@ interface Props {
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  .mobile-icon {
-    width: 32px;
-    ${({ theme }) => theme.mediaQueries.nav} {
-      display: none;
-    }
-  }
-  .desktop-icon {
-    width: 156px;
-    display: none;
-    ${({ theme }) => theme.mediaQueries.nav} {
-      display: block;
-    }
+  ${({ theme }) => theme.mediaQueries.nav} {
+    justify-content: center;
+    flex:2;
   }
 `;
 
@@ -36,6 +27,11 @@ const StyledImg = styled.img<{height:number,isMobile:boolean}>`
   height: ${({height,isMobile})=>isMobile?'48px':`${height}px`};
   width: 100%;
   object-fit: contain;
+`
+const LogoFlex = styled(Flex)`
+  ${({ theme }) => theme.mediaQueries.nav} {
+    flex:2;
+  }
 `
 
 const Logo: React.FC<Props> = ({ isMobile,isPushed, togglePush, isDark, href , webIcon}) => {
@@ -51,7 +47,7 @@ const Logo: React.FC<Props> = ({ isMobile,isPushed, togglePush, isDark, href , w
   );
 
   return (
-    <Flex>
+    <LogoFlex>
       {isMobile && (
         <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
           {isPushed ? (
@@ -70,7 +66,7 @@ const Logo: React.FC<Props> = ({ isMobile,isPushed, togglePush, isDark, href , w
           {innerLogo}
         </StyledLink>
       )}
-    </Flex>
+    </LogoFlex>
   );
 };
 
