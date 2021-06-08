@@ -2,16 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import throttle from "lodash/throttle";
 import Overlay from "../../../../components/Overlay/Overlay";
-import Flex from "../../../../components/Box/Flex";
 import { useMatchBreakpoints } from "../../../../hooks";
 import Logo from "./components/Logo";
 import Panel from "./components/Panel";
-import UserBlock from "../../components/UserBlock";
 import { NavProps } from "../../types";
-import Avatar from "../../components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../../config";
-import SelectConnector from "../../components/SelectConnector";
-import LogoT from "../../components/TopMenu/LogoT";
 
 const Wrapper = styled.div`
   position: relative;
@@ -30,7 +25,7 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   padding-right: 16px;
   width: 100%;
   height: ${MENU_HEIGHT}px;
-  background-color: ${({ theme }) => theme.nav.background};
+  background-color: ${({ theme }) => theme.nav.logoBg??theme.nav.background};
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);

@@ -14,7 +14,7 @@ interface Props extends PanelProps, PushedProps,ContactList {}
 const Container = styled.div`
   flex: none;
   padding: 8px 4px;
-  background-color: ${({ theme }) => theme.nav.background};
+  background-color: ${({ theme }) => theme.nav.footerBg??theme.nav.background};
   border-top: solid 2px rgba(133, 133, 133, 0.1);
   svg {
     fill: ${({ theme }) => theme.colors.navText};
@@ -70,11 +70,11 @@ const PanelFooter: React.FC<Props> = ({
 
           return entry.isTooltip?(
             <IconTooltip interactive key={`${entry.iconLink}-${index}`} title={entry.isPhoto?getImageView(entry.tooltipContent):entry.tooltipContent} arrow placement="top"  disableFocusListener disableTouchListener >
-              <div>
+              <Flex justifyContent="center" alignItems="center">
                 <SVG src={entry.iconLink} width={entry.iconSize}
                    style={{margin: '4px', flexShrink: 0}}
               />
-              </div>
+              </Flex>
             </IconTooltip>
           ):(
             <Link external key={`${entry.iconLink}-${index}`} href={entry.href}>
@@ -85,9 +85,6 @@ const PanelFooter: React.FC<Props> = ({
           )
           }
         )}
-        <Tooltip disableFocusListener disableTouchListener title="Add"  arrow placement="top">
-          <Button>Hover</Button>
-        </Tooltip>
       </Flex>
     </Container>
   );

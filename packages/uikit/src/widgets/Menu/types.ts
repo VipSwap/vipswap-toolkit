@@ -28,6 +28,8 @@ export interface PushedProps {
 export interface NavTheme {
   background: string;
   hover: string;
+  footerBg?: string;
+  logoBg?: string;
 }
 
 export interface LinkStatus {
