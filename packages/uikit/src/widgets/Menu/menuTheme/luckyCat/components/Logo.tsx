@@ -25,8 +25,10 @@ const StyledLink = styled(Link)`
 
 const StyledImg = styled.img<{height:number,isMobile:boolean}>`
   height: ${({height,isMobile})=>isMobile?'48px':`${height}px`};
-  width: 100%;
   object-fit: contain;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 100%;
+  }
 `
 const LogoFlex = styled(Flex)`
   ${({ theme }) => theme.mediaQueries.nav} {
@@ -49,7 +51,7 @@ const Logo: React.FC<Props> = ({ isMobile,isPushed, togglePush, isDark, href , w
   return (
     <LogoFlex>
       {isMobile && (
-        <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
+        <MenuButton aria-label="Toggle menu" onClick={togglePush}>
           {isPushed ? (
             <HamburgerCloseIcon width="24px" color="navActivityText" />
           ) : (

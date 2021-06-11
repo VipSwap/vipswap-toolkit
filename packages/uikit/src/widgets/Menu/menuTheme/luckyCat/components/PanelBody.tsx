@@ -6,6 +6,9 @@ import { PanelProps, PushedProps } from "../../../types";
 import Accordion from "./Accordion";
 import { MenuEntry, LinkLabel, LinkStatus, LinkLabelStatus } from "./MenuEntry";
 import MenuLink from "../../../components/MenuLink";
+import MenuLan from "./MenuLan";
+import LangSelector from "../../../components/LangSelector";
+import { Flex } from "../../../../../components/Box";
 
 interface Props extends PanelProps, PushedProps {
   isMobile: boolean;
@@ -20,7 +23,15 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
+const PanelBody: React.FC<Props> = ({
+                                      isPushed,
+                                      pushNav,
+                                      isMobile,
+                                      links,
+                                      currentLang,
+                                      langs,
+                                      setLang,
+}) => {
   const location = useLocation();
   const componentDidMount = (hash?:string)=>{
     // Decode entities in the URL
@@ -106,6 +117,13 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
           </MenuEntry>
         );
       })}
+
+      {isMobile && (
+        <Flex justifyContent="center" alignItems="center">
+          <MenuLan currentLang={currentLang} langs={langs} setLang={setLang}  />
+        </Flex>
+      )}
+
     </Container>
   );
 };

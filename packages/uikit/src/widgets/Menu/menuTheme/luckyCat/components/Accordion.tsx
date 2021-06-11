@@ -68,6 +68,7 @@ const Accordion: React.FC<Props> = ({
   return (
     <Container>
       <MenuEntry onClick={handleClick} className={className} isActive={isActive}>
+        {icon}
         {iconLink?(
           <SVG src={iconLink} width={iconSize} style={{marginRight: '8px', flexShrink: 0}} />
         ):null}

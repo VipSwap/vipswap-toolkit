@@ -7,6 +7,7 @@ import Logo from "./components/Logo";
 import Panel from "./components/Panel";
 import { NavProps } from "../../types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../../config";
+import UserBlock from "../../components/UserBlock";
 
 const Wrapper = styled.div`
   position: relative;
@@ -42,7 +43,7 @@ const BodyWrapper = styled.div`
 
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-grow: 1;
-  margin-top: 0px;
+  margin-top: 64px;
   transition: margin-top 0.2s;
   transform: translate3d(0, 0, 0);
   max-width: 100%;
@@ -50,6 +51,7 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   ${({ theme }) => theme.mediaQueries.nav} {
     margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
     max-width: ${({ isPushed }) => `calc(100% - ${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px)`};
+    margin-top: 0px;
   }
 `;
 
@@ -133,6 +135,9 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
           webIcon={webAsset.webIcon}
         />
+        {isMobile && (
+          <UserBlock account={account} login={login} logout={logout} walletSet={walletSet}/>
+        )}
       </StyledNav>
       <BodyWrapper>
         <Panel
