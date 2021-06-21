@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.12-beta.37](https://github.com/VipSwap/vipswap-toolkit/tree/master/packages/uikit/compare/@vipswap/uikit@0.1.12-beta.36...@vipswap/uikit@0.1.12-beta.37) (2021-06-21)
+
+**Note:** Version bump only for package @vipswap/uikit
+
+
+
+
+
 ## [0.1.12-beta.36](https://github.com/VipSwap/vipswap-toolkit/tree/master/packages/uikit/compare/@vipswap/uikit@0.1.12-beta.35...@vipswap/uikit@0.1.12-beta.36) (2021-06-21)
 
 **Note:** Version bump only for package @vipswap/uikit
