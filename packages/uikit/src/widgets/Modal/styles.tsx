@@ -49,7 +49,7 @@ export const ModalContainer = styled(Box)<{ minWidth: string }>`
   overflow: hidden;
   min-width: 300px;
 
-  ${({ theme }) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.mediaQueries.xs} {
     width: auto;
     min-width: ${({ minWidth }) => minWidth};
     max-width: 100%;
