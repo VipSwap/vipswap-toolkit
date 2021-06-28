@@ -17,6 +17,9 @@ interface CustomModalProps extends InjectedProps {
 const CustomModal: React.FC<CustomModalProps> = ({ title, onDismiss }) => (
   <Modal headerBackground="#f24a65" title={title} onDismiss={onDismiss}>
     <Heading>{title}</Heading>
+    {[...Array(20)].map((_,index) => (
+      <div style={{color: '#fff'}}>测试{index}</div>
+    ))}
     <Button>This button Does nothing</Button>
   </Modal>
 );

@@ -12,7 +12,8 @@ interface ModalsContext {
 const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 10% 15px;
   align-items: center;
   position: fixed;
   top: 0;
@@ -20,6 +21,7 @@ const ModalWrapper = styled.div`
   bottom: 0;
   left: 0;
   z-index: ${({ theme }) => theme.zIndices.modal - 1};
+  overflow: auto;
 `;
 
 export const Context = createContext<ModalsContext>({

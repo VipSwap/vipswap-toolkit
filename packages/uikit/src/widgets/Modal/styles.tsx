@@ -12,6 +12,7 @@ export const ModalHeader = styled.div<{ background?: string }>`
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
   display: flex;
   padding: 12px 24px;
+  border-radius: 32px 32px 0 0;
 `;
 
 export const ModalTitle = styled(Flex)`
