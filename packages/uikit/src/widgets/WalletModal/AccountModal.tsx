@@ -25,7 +25,7 @@ const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null
         bold
         style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", marginBottom: "8px" }}
       >
-        {tokenBalance} {tokenSymbol}
+        balance: {tokenBalance} {tokenSymbol}
       </Text>
     )}
     <Text
