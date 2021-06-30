@@ -75,6 +75,8 @@ export interface PanelProps {
   isDark: boolean;
   toggleTheme: (isDark: boolean) => void;
   tokenPriceUsd?: number;
+  tokenBalance?: string;
+  tokenSymbol?: string;
   currentLang: string;
   langs: Language[];
   setLang: (lang: Language) => void;

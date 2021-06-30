@@ -83,6 +83,8 @@ const Menu: React.FC<NavProps> = ({
   connectorSet,
   contactList,
   contactFlex,
+  tokenBalance,
+  tokenSymbol,
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
@@ -136,7 +138,7 @@ const Menu: React.FC<NavProps> = ({
           webIcon={webAsset.webIcon}
         />
         {isMobile && (
-          <UserBlock account={account} login={login} logout={logout} walletSet={walletSet}/>
+          <UserBlock account={account} login={login} logout={logout} walletSet={walletSet} tokenSymbol={tokenSymbol} tokenBalance={tokenBalance}/>
         )}
       </StyledNav>
       <BodyWrapper>

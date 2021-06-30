@@ -13,10 +13,21 @@ interface Props {
   onDismiss?: () => void;
   scanLink?: string;
   scanLabel?: string;
+  tokenBalance?: string
+  tokenSymbol?: string
 }
 
-const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null,scanLink,scanLabel }) => (
+const AccountModal: React.FC<Props> = ({ account, logout, onDismiss = () => null,scanLink,scanLabel,tokenBalance,tokenSymbol }) => (
   <Modal title="Your wallet" onDismiss={onDismiss}>
+    { tokenSymbol && tokenBalance && (
+      <Text
+        fontSize="20px"
+        bold
+        style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", marginBottom: "8px" }}
+      >
+        {tokenBalance} {tokenSymbol}
+      </Text>
+    )}
     <Text
       fontSize="20px"
       bold

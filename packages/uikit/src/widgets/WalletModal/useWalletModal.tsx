@@ -9,9 +9,9 @@ interface ReturnType {
   onPresentAccountModal: () => void;
 }
 
-const useWalletModal = (login: Login, logout: () => void, account?: null | string, helpLink?: string, scanLink?:string, scanLabel?: string): ReturnType => {
+const useWalletModal = (login: Login, logout: () => void, account?: null | string, helpLink?: string, scanLink?:string, scanLabel?: string, tokenBalance?: string, tokenSymbol?: string): ReturnType => {
   const [onPresentConnectModal] = useModal(<ConnectModal login={login} helpLink={helpLink}/>);
-  const [onPresentAccountModal] = useModal(<AccountModal account={account || ""} logout={logout} scanLink={scanLink} scanLabel={scanLabel}/>);
+  const [onPresentAccountModal] = useModal(<AccountModal account={account || ""} logout={logout} scanLink={scanLink} scanLabel={scanLabel} tokenBalance={tokenBalance} tokenSymbol={tokenSymbol}/>);
   return { onPresentConnectModal, onPresentAccountModal };
 };
 
