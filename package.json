@@ -23,7 +23,8 @@
     "format:check": "lerna run format:check",
     "storybook:build": "lerna run storybook:build",
     "release": "yarn build && yarn lerna publish",
-    "release-beta": "yarn build && yarn lerna publish --dist-tag beta"
+    "release-beta": "yarn build && yarn lerna publish --dist-tag beta",
+    "release-push-beta": "yarn lerna publish --dist-tag beta"
   },
   "husky": {
     "hooks": {
