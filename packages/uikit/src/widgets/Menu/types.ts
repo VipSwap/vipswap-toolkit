@@ -30,6 +30,7 @@ export interface NavTheme {
   hover: string;
   footerBg?: string;
   logoBg?: string;
+  mBg?: string;
 }
 
 export interface LinkStatus {
