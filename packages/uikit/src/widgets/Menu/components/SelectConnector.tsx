@@ -19,7 +19,7 @@ interface Props {
 const DropdownItem = styled.div`
   padding: 10px 15px;
   font-size: 18px;
-  color: ${({theme})=>theme.colors.text};
+  color: ${({theme})=>theme.colors.navDropdownText};
   cursor: pointer;
   &:hover {
     background-color: ${({theme})=>theme.colors.navHover};
