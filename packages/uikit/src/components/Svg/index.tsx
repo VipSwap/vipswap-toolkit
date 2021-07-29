@@ -66,5 +66,8 @@ export { default as VolumeOffIcon } from "./Icons/VolumeOff";
 export { default as VolumeUpIcon } from "./Icons/VolumeUp";
 export { default as WarningIcon } from "./Icons/Warning";
 export { default as RefreshIcon } from "./Icons/Refresh";
+export { default as PresentWonIcon } from "./Icons/PresentWon";
+export { default as SmallDotIcon } from "./Icons/SmallDot";
+export { default as ArrowLastIcon } from "./Icons/ArrowLast";
 export { default as Svg } from "./Svg";
 export type { SvgProps } from "./types";

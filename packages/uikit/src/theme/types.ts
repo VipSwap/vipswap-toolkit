@@ -31,9 +31,16 @@ export type Shadows = {
 
 export type Gradients = {
   bubblegum: string;
+  inverseBubblegum: string;
+  cardHeader: string;
+  blue: string;
+  violet: string;
+  violetAlt: string;
+  gold: string;
 };
 
 export type Colors = {
+  cardBorder: string;
   primary: string;
   primaryBright: string;
   primaryDark: string;
