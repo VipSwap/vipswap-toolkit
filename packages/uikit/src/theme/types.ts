@@ -40,6 +40,7 @@ export type Gradients = {
 };
 
 export type Colors = {
+  disabled: string;
   cardBorder: string;
   primary: string;
   primaryBright: string;
