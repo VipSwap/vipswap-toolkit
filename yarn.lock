@@ -4208,7 +4208,7 @@
 
 "@vipswap/uikit@file:/Users/yuanjun/my/xiangmu_basis/bsc-chain/v2/vipswap-toolkit/packages/uikit":
   "resolved" "file:packages/uikit"
-  "version" "0.1.12-beta.52"
+  "version" "0.1.12-beta.60"
   dependencies:
     "@material-ui/core" "^4.11.3"
     "@material-ui/icons" "^4.11.2"
