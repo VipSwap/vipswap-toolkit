@@ -80,5 +80,5 @@ const AccordionT: React.FC<Props> = ({
   );
 };
 
-// export default React.memo(AccordionT, (prev, next) => prev.isPushed === next.isPushed);
+// export default React.memo(Accordion, (prev, next) => prev.isPushed === next.isPushed);
 export default AccordionT;

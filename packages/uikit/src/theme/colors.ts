@@ -139,7 +139,7 @@ export const lightColors: Colors = {
   navText: "#FFF",
   navHover: "rgba(65,58,52,0.8)",
   navActivityText: "#ea9f10",
-  navDropdownBg: "#413A34",
+  navDropdownBg: "#27262c",
   navDropdownText: "#fff"
 };
 
@@ -179,6 +179,6 @@ export const darkColors: Colors = {
   navText: "#FFF",
   navActivityText: "#ea9f10",
   navHover: "rgba(65,58,52,0.8)",
-  navDropdownBg: "#413A34",
+  navDropdownBg: "#27262c",
   navDropdownText: "#fff"
 };

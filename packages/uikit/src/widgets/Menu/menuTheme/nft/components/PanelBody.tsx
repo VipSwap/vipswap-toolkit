@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
-import { SvgProps } from "../../../../components/Svg";
-import * as IconModule from "../../icons";
-import AccordionT from "./AccordionT";
-import { MenuEntry, LinkStatus, LinkLabelStatus } from "../MenuEntry";
-import MenuLink from "../MenuLink";
-import { PanelProps, PushedProps } from "../../types";
-import Dropdown from "../../../../components/Dropdown/Dropdown";
+import { SvgProps } from "../../../../../components/Svg";
+import * as IconModule from "../../../icons";
+import Accordion from "./Accordion";
+import { MenuEntry, LinkStatus, LinkLabelStatus } from "./MenuEntry";
+import MenuLink from "../../../components/MenuLink";
+import { PanelProps, PushedProps } from "../../../types";
+import Dropdown from "../../../../../components/Dropdown/Dropdown";
 import { MoreHoriz } from "@material-ui/icons";
 
 
@@ -20,9 +20,10 @@ const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
 const Container = styled.div`
   display: flex;
   height: 100%;
+  justify-content: flex-end;
 `;
 
-const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
+const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
   const location = useLocation();
 
   const componentDidMount = (hash?:string)=>{
@@ -77,7 +78,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
           const itemsMatchIndex = entry.items.findIndex((item) => item.href === currentPath);
           const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
           const dropdownMenu = (
-            <AccordionT
+            <Accordion
               key={entry.label}
               isPushed={isPushed}
               pushNav={pushNav}
@@ -137,7 +138,7 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
               const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
               const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
               const dropdownMenu = (
-                <AccordionT
+                <Accordion
                   key={entry.label}
                   isPushed={isPushed}
                   pushNav={pushNav}
@@ -188,4 +189,4 @@ const PanelBodyT: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
   );
 };
 
-export default PanelBodyT;
+export default PanelBody;

@@ -34,7 +34,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
         if (hashParts.length >= 2) {
           const id = hashParts.slice(-1)[0];
           const anchorElement = document.getElementById(id);
-          if(anchorElement) { anchorElement.scrollIntoView(); }
+          if(anchorElement) { anchorElement.scrollIntoView({behavior: "smooth"}); }
           // document.querySelector(`#${hash}`).scrollIntoView();
         }
       }
