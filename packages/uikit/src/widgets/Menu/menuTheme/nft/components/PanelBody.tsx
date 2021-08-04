@@ -70,7 +70,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
         // const iconElement = <Icon width="24px" mr="8px" />;
         const iconElement = <div />;
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
-        if(index>= 5) return null;
+        if(index>= 7) return null;
         const currentPath = location.hash?`${location.pathname}${location.hash}`:location.pathname
 
         if (entry.items) {
@@ -124,7 +124,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
       })}
 
       {/* 菜单超出5个 超出部分进行合并 显示更多菜单 */}
-      { links.length > 5 && (
+      { links.length > 7 && (
         <Dropdown key={`moreMenu`} position="bottom" className={`menu-st-more`} canScroll={false} target={moreBtn}>
           {links.map((entry,index) => {
             // const Icon = Icons[entry.icon];
@@ -133,7 +133,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links}) => {
             const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
             const currentPath = location.hash?`${location.pathname}${location.hash}`:location.pathname
 
-            if(index < 5) return null;
+            if(index < 7) return null;
             if (entry.items) {
               const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
               const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;

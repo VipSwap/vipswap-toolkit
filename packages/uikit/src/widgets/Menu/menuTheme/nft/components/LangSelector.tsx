@@ -29,7 +29,7 @@ const LangSelector: React.FC<Props> = ({ currentLang, langs, setLang, isMobile=f
     position={isMobile?"top":"bottom"}
     target={
       <Button scale={scales.XS} variant="text" startIcon={<LanguageIcon color="navText" width="24px" />}>
-        <Text color="navText">{currentLang?.toUpperCase()}</Text>
+        {/*<Text color="navText">{currentLang?.toUpperCase()}</Text>*/}
       </Button>
     }
   >

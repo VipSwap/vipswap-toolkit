@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { PanelProps, PushedProps } from "../../../types";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../../../config";
-import PanelBody from "./PanelBody";
+import PanelBody from "../../../components/PanelBody";
 
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean;

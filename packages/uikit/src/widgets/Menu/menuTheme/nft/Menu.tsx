@@ -18,16 +18,24 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const StyledNav = styled.nav<{ showMenu: boolean, isMobile: boolean}>`
+const StyledNav = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  margin: auto;
+  height: 100%;
+  max-height: ${MENU_HEIGHT}px;
+`;
+const StyledNavBox = styled.nav<{ showMenu: boolean, isMobile: boolean}>`
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
   transition: top 0.2s;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 16px;
-  padding-right: 16px;
   width: 100%;
   height: ${MENU_HEIGHT}px;
   background-color: ${({ theme }) => theme.nav.background};
@@ -35,7 +43,7 @@ const StyledNav = styled.nav<{ showMenu: boolean, isMobile: boolean}>`
   z-index: 20;
   transform: ${({ isMobile }) => (isMobile ? 'none' : `translate3d(0, 0, 0)`)};
   transform: none;
-`;
+`
 
 const BodyWrapper = styled.div`
   position: relative;
@@ -126,47 +134,49 @@ const NftMenu: React.FC<NavProps> = ({
 
   return (
     <Wrapper>
-      <StyledNav showMenu={showMenu} isMobile={isMobile}>
-        <LogoT
-          isMobile={isMobile}
-          isPushed={isPushed}
-          togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
-          isDark={isDark}
-          href={homeLink?.href ?? "/"}
-          webIcon={webAsset.webIcon}
-        />
-        {!isMobile && (
-          <TopPanel
-            isPushed={isPushed}
+      <StyledNavBox showMenu={showMenu} isMobile={isMobile}>
+        <StyledNav>
+          <LogoT
             isMobile={isMobile}
-            showMenu={showMenu}
+            isPushed={isPushed}
+            togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
             isDark={isDark}
-            toggleTheme={toggleTheme}
-            langs={langs}
-            setLang={setLang}
-            currentLang={currentLang}
-            tokenPriceUsd={tokenPriceUsd}
-            pushNav={setIsPushed}
-            links={currentLinks}
-            webAsset={webAsset}
-            socials={socials}
+            href={homeLink?.href ?? "/"}
+            webIcon={webAsset.webIcon}
           />
-        )}
-        <StyledFlex>
-          {account && connectorSet && (
-            <SelectConnector
-              chainId={connectorSet.chainId}
-              list={connectorSet.connectorList}
-              networkLabels={connectorSet.networkLabels}
+          {!isMobile && (
+            <TopPanel
+              isPushed={isPushed}
+              isMobile={isMobile}
+              showMenu={showMenu}
+              isDark={isDark}
+              toggleTheme={toggleTheme}
+              langs={langs}
+              setLang={setLang}
+              currentLang={currentLang}
+              tokenPriceUsd={tokenPriceUsd}
+              pushNav={setIsPushed}
+              links={currentLinks}
+              webAsset={webAsset}
+              socials={socials}
             />
           )}
-          <UserBlock account={account} login={login} logout={logout} walletSet={walletSet}/>
-          <LangBox>
-            <LangSelectorT currentLang={currentLang} langs={langs} setLang={setLang} isMobile={isMobile}/>
-          </LangBox>
-          {/* {profile && <Avatar profile={profile} />} */}
-        </StyledFlex>
-      </StyledNav>
+          <StyledFlex>
+            {account && connectorSet && (
+              <SelectConnector
+                chainId={connectorSet.chainId}
+                list={connectorSet.connectorList}
+                networkLabels={connectorSet.networkLabels}
+              />
+            )}
+            <UserBlock account={account} login={login} logout={logout} walletSet={walletSet}/>
+            <LangBox>
+              <LangSelectorT currentLang={currentLang} langs={langs} setLang={setLang} isMobile={isMobile}/>
+            </LangBox>
+            {/* {profile && <Avatar profile={profile} />} */}
+          </StyledFlex>
+        </StyledNav>
+      </StyledNavBox>
       {!isMobile && (
         <BodyWrapper>
           <Inner isPushed={isPushed} showMenu={showMenu}>
