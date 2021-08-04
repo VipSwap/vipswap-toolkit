@@ -52,7 +52,7 @@ const BodyWrapper = styled.div`
 
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-grow: 1;
-  margin-top: 0;
+  margin-top: ${MENU_HEIGHT}px;
   transition: margin-top 0.2s;
   transform: translate3d(0, 0, 0);
   max-width: 100%;
