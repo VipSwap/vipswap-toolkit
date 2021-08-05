@@ -68,6 +68,12 @@ const MenuEntry = styled.div<Props>`
 
   &:hover {
     color: ${({ theme }) => theme.colors.navHover};
+    ${LinkLabelStatus} {
+      color: ${({ theme }) => theme.colors.navHover};
+    }
+    ${LinkLabel} {
+      color: ${({ theme }) => theme.colors.navHover};
+    }
   }
 
   // Safari fix
