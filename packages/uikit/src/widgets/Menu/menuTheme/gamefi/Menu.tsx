@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const StyledNav = styled.nav<{ showMenu: boolean }>`
+const StyledNav = styled.nav<{ showMenu: boolean, height?: number }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -32,7 +32,7 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   transform: translate3d(0, 0, 0);
   ${({ theme }) => theme.mediaQueries.nav} {
     width: ${SIDEBAR_WIDTH_FULL}px;
-    height: 180px;
+    height: ${({height})=>height??MENU_HEIGHT}px;
   }
 `;
 
@@ -129,7 +129,7 @@ const Menu: React.FC<NavProps> = ({
 
   return (
     <Wrapper>
-      <StyledNav showMenu={showMenu}>
+      <StyledNav showMenu={showMenu} height={webAsset.NavHeightPc}>
         <Logo
           isMobile={isMobile}
           isPushed={isPushed}
