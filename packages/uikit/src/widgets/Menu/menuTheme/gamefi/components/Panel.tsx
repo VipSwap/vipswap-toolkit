@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ContactList, PanelProps, PushedProps } from "../../../types";
-import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../../../config";
+import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL, MENU_HEIGHT } from "../../../config";
 import PanelBody from "./PanelBody";
 import PanelFooter from "./PanelFooter";
 
@@ -10,7 +10,7 @@ interface Props extends PanelProps, PushedProps,ContactList {
   isMobile: boolean;
 }
 
-const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
+const StyledPanel = styled.div<{ isPushed: boolean, showMenu: boolean, navHeight?: number }>`
   position: fixed;
   padding-top: ${({ showMenu }) => (showMenu ? "80px" : 0)};
   top: 0;
@@ -29,7 +29,7 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   transform: translate3d(0, 0, 0);
 
   ${({ theme }) => theme.mediaQueries.nav} {
-    padding-top: 180px;
+    padding-top:  ${({navHeight})=>navHeight??MENU_HEIGHT}px;
     z-index: initial;
     // border-right: 2px solid rgba(133, 133, 133, 0.1);
     background-color: ${({ theme }) => theme.nav.background};
@@ -38,9 +38,9 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
 `;
 
 const Panel: React.FC<Props> = (props) => {
-  const { isPushed, showMenu } = props;
+  const { isPushed, showMenu, webAsset } = props;
   return (
-    <StyledPanel isPushed={isPushed} showMenu={showMenu}>
+    <StyledPanel isPushed={isPushed} showMenu={showMenu} navHeight={webAsset.NavHeightPc}>
       <PanelBody { ...props } />
       <PanelFooter { ...props } />
     </StyledPanel>
