@@ -20,10 +20,10 @@ const HelpLink = styled(Link)`
   margin-top: 24px;
 `;
 const StyledBody = styled.div`
-  max-width: 300px;
   width: 100%;
   height: 300px;
   overflow-y: auto;
+  max-width: 300px;
 `
 const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, helpLink }) => (
   <Modal title="Connect to a wallet" onDismiss={onDismiss}>
