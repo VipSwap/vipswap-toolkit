@@ -7,7 +7,7 @@ import Logo from "./components/Logo";
 import Panel from "./components/Panel";
 import { NavProps } from "../../types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../../config";
-import UserBlock from "../../components/UserBlock";
+import UserBlock from "./components/UserBlock";
 
 const Wrapper = styled.div`
   position: relative;
