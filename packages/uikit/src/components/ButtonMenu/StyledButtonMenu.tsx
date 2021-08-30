@@ -4,15 +4,16 @@ import { Variant, variants } from "../Button/types";
 type StyledButtonMenuProps = {
   variant: Variant;
   theme: DefaultTheme;
+  bRadius?: string
 };
 
 const getBackgroundColor = ({ theme, variant }: StyledButtonMenuProps) => {
   return theme.colors[variant === variants.SUBTLE ? "input" : "tertiary"];
 };
 
-const StyledButtonMenu = styled.div<{ variant: Variant }>`
+const StyledButtonMenu = styled.div<{ variant: Variant, bRadius?: string }>`
   background-color: ${getBackgroundColor};
-  border-radius: 16px;
+  border-radius: ${({bRadius})=>bRadius??'16px'};
   display: inline-flex;
 
   & > button + button,
