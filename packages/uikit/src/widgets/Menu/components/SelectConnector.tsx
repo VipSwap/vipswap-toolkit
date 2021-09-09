@@ -57,7 +57,7 @@ const SelectConnector: React.FC<Props> = ({ list, chainId, networkLabels }) => {
         {list.map((item, index) => {
           return (
             <DropdownItem key={index}>
-              <a href={item.url}>
+              <a href={item.url} target="_self">
                 {item.chainName.toUpperCase()}
               </a>
             </DropdownItem>
