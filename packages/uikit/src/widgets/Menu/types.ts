@@ -86,9 +86,8 @@ export interface PanelProps {
   socials: Array<Socials>;
 }
 export interface ConnectorList {
-  login: Login;
   chainName: string;
-  connectorId: ConnectorNames;
+  url: string
 }
 export interface ConnectorSet {
   connectorList: Array<ConnectorList>;

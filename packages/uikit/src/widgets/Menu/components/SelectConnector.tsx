@@ -5,11 +5,11 @@ import { Login } from "../../WalletModal/types";
 import Dropdown from "../../../components/Dropdown/Dropdown";
 import styled from "styled-components";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 export interface ConnectorList {
-  login: Login;
   chainName: string;
-  connectorId: ConnectorNames;
+  url: string
 }
 interface Props {
   list: Array<ConnectorList>
@@ -56,13 +56,10 @@ const SelectConnector: React.FC<Props> = ({ list, chainId, networkLabels }) => {
       <Dropdown target={dropdownTarget()}>
         {list.map((item, index) => {
           return (
-            <DropdownItem
-              onClick={() => {
-                item.login(item.connectorId)
-              }}
-              key={index}
-            >
-              {item.chainName.toUpperCase()}
+            <DropdownItem key={index}>
+              <a href={item.url}>
+                {item.chainName.toUpperCase()}
+              </a>
             </DropdownItem>
           );
         })}

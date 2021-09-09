@@ -134,7 +134,7 @@ const Menu: React.FC<NavProps> = ({
           webIcon={webAsset.webIcon}
         />
         <Flex>
-          {account && connectorSet && (
+          {connectorSet && (
             <SelectConnector
               chainId={connectorSet.chainId}
               list={connectorSet.connectorList}
