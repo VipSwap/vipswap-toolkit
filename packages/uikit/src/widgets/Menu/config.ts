@@ -195,8 +195,8 @@ export const webAsset = {
   webIcon: {
     width: 24,
     height: 24,
-    light: 'https://bpool.vipswap.org/static/media/swapLogo.444498e8.png',
-    dark: 'https://bpool.vipswap.org/tokenIcon/VIP.png',
+    light: 'https://gamefi.ai/static/media/logo-name-1.7d800e2e.png',
+    dark: 'https://gamefi.ai/static/media/logo-name-1.7d800e2e.png',
   },
   tokenAsset: {
     tokenIcon: tradeIcon,

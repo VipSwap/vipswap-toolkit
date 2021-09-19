@@ -17,15 +17,19 @@ interface Props {
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
+  width: 48px;
+  overflow: hidden;
   ${({ theme }) => theme.mediaQueries.nav} {
     justify-content: center;
     flex:2;
+    width: auto;
   }
 `;
 
 const StyledImg = styled.img<{height:number,isMobile:boolean}>`
   height: ${({height,isMobile})=>isMobile?'48px':`${height}px`};
   object-fit: contain;
+ 
   ${({ theme }) => theme.mediaQueries.nav} {
     width: 100%;
   }

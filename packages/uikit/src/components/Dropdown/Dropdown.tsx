@@ -64,6 +64,10 @@ const DropdownContent = styled.div<{ position: Position,canScroll:boolean,isColl
 const Container = styled.div<{className: string}>`
   position: relative;
   display: inline-block;
+  &.MenuLanWidth {
+    width: 100%;
+    padding: 0 8px;
+  }
   &.${({className})=>className}:hover > ${DropdownContent}{
     display: flex;
   }

@@ -12,7 +12,7 @@ interface ModalsContext {
 const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 10% 15px;
   align-items: center;
   position: fixed;

@@ -119,7 +119,7 @@ const PanelBody: React.FC<Props> = ({
       })}
 
       {isMobile && (
-        <Flex justifyContent="center" alignItems="center">
+        <Flex justifyContent="flex-start" alignItems="center">
           <MenuLan currentLang={currentLang} langs={langs} setLang={setLang}  />
         </Flex>
       )}

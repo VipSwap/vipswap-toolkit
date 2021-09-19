@@ -8,6 +8,7 @@ import Panel from "./components/Panel";
 import { NavProps } from "../../types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "../../config";
 import UserBlock from "./components/UserBlock";
+import Audit from "./components/Audit";
 
 const Wrapper = styled.div`
   position: relative;
@@ -138,6 +139,17 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
           webIcon={webAsset.webIcon}
         />
+        {isMobile && (
+          <Audit
+            isMobile={isMobile}
+            isPushed={isPushed}
+            togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
+            isDark={isDark}
+            href={homeLink?.href ?? "/"}
+            auditSvg={webAsset.auditSvg}
+            auditUrl={webAsset.auditUrl}
+          />
+          )}
         {isMobile && (
           <UserBlock account={account} login={login} logout={logout} walletSet={walletSet} tokenSymbol={tokenSymbol} tokenBalance={tokenBalance}/>
         )}

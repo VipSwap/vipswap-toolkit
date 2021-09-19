@@ -19,9 +19,10 @@ interface Props {
 const MenuLan: React.FC<Props> = ({ currentLang, langs, setLang }) => (
   <Dropdown
     position="top"
+    className="MenuLanWidth"
     target={
-      <Button variant="text" startIcon={<LanguageIcon color="navText" width="24px" />} endIcon={<ArrowDropDownIcon color="navText"/>}>
-        <Text color="navText">{currentLang?.toUpperCase()}</Text>
+      <Button style={{width: '100%'}} variant="text" startIcon={<LanguageIcon color="navText" width="24px" />} endIcon={<ArrowDropDownIcon color="navText"/>}>
+        <Text color="navText" style={{flex: 2, textAlign: 'left'}}>{currentLang?.toUpperCase()}</Text>
       </Button>
     }
   >
