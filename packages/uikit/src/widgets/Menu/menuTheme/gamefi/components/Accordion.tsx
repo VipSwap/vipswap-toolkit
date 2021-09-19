@@ -70,7 +70,6 @@ const Accordion: React.FC<Props> = ({
 
   const classes = useStyles();
   const theme = useContext(ThemeContext)
-  console.log('markerColor', markerColor)
   return (
     <Container>
       <MenuEntry onClick={handleClick} className={className} isActive={isActive} markerColor={markerColor}>
