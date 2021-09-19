@@ -60,6 +60,8 @@ export interface MenuEntry {
   iconLink: string;
   iconSize?: number;
   labelStringId?: string;
+  // 高亮颜色，突出不同
+  markerColor?:string;
 }
 
 export interface SocialsItem {

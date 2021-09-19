@@ -22,6 +22,7 @@ interface Props extends PushedProps {
   isActive?: boolean;
   iconLink: string;
   iconSize?: number;
+  markerColor?: string;
 }
 
 const Container = styled.div`
@@ -38,6 +39,9 @@ const AccordionContent = styled.div<{ isOpen: boolean; isPushed: boolean; maxHei
   // border-color: ${({ isOpen, isPushed }) => (isOpen && isPushed ? "rgba(133, 133, 133, 0.1)" : "transparent")};
   // border-style: solid;
   // border-width: 1px 0;
+  
+  border-top: 1px solid ${({isOpen, isPushed ,theme})=> isOpen && isPushed ?theme.colors.navItemBorder: "transparent"};
+  border-bottom: 1px solid ${({isOpen, isPushed ,theme})=> isOpen && isPushed ?theme.colors.navItemBorder: "transparent"};
 `;
 
 const Accordion: React.FC<Props> = ({
@@ -51,6 +55,7 @@ const Accordion: React.FC<Props> = ({
   isActive,
   iconLink,
   iconSize,
+  markerColor,
 }) => {
   const [isOpen, setIsOpen] = useState(initialOpenState);
 
@@ -65,14 +70,15 @@ const Accordion: React.FC<Props> = ({
 
   const classes = useStyles();
   const theme = useContext(ThemeContext)
+  console.log('markerColor', markerColor)
   return (
     <Container>
-      <MenuEntry onClick={handleClick} className={className} isActive={isActive}>
+      <MenuEntry onClick={handleClick} className={className} isActive={isActive} markerColor={markerColor}>
         {icon}
         {iconLink?(
           <SVG src={iconLink} width={iconSize} style={{marginRight: '8px', flexShrink: 0}} />
         ):null}
-        <LinkLabel isPushed={isPushed} isActive={isActive}>{label}</LinkLabel>
+        <LinkLabel isPushed={isPushed} isActive={isActive} markerColor={markerColor}>{label}</LinkLabel>
         {isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
       </MenuEntry>
       <AccordionContent

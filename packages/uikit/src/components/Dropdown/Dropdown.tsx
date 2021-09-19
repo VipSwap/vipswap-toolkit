@@ -66,7 +66,6 @@ const Container = styled.div<{className: string}>`
   display: inline-block;
   &.MenuLanWidth {
     width: 100%;
-    padding: 0 8px;
   }
   &.${({className})=>className}:hover > ${DropdownContent}{
     display: flex;

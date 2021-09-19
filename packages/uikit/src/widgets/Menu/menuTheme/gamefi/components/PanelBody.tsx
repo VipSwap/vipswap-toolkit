@@ -70,7 +70,6 @@ const PanelBody: React.FC<Props> = ({
           // const itemsMatchIndex = entry.items.findIndex((item) => item.href === location.pathname);
           const itemsMatchIndex = entry.items.findIndex((item) => item.href === currentPath);
           const initialOpenState = entry.initialOpenState === true ? entry.initialOpenState : itemsMatchIndex >= 0;
-
           return (
             <Accordion
               key={entry.label}
@@ -83,6 +82,7 @@ const PanelBody: React.FC<Props> = ({
               isActive={entry.items.some((item) => item.href === currentPath)}
               iconLink={entry.iconLink}
               iconSize={entry.iconSize}
+              markerColor={entry.markerColor}
             >
               {isPushed &&
                 entry.items.map((item) => (
@@ -101,13 +101,13 @@ const PanelBody: React.FC<Props> = ({
           );
         }
         return (
-          <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass}>
+          <MenuEntry key={entry.label} isActive={entry.href === currentPath} className={calloutClass} markerColor={entry.markerColor}>
             <MenuLink href={entry.href} {...{hash: entry.hash}} onClick={()=>componentDidMount(entry.hash)}>
               {/*{iconElement}*/}
               {entry.iconLink?(
                 <SVG src={entry.iconLink} width={entry.iconSize} style={{marginRight: '8px', flexShrink: 0}} />
               ):null}
-              <LinkLabelStatus isPushed={isPushed} isActive={entry.href === currentPath}>{entry.label}</LinkLabelStatus>
+              <LinkLabelStatus isPushed={isPushed} isActive={entry.href === currentPath}  markerColor={entry.markerColor}>{entry.label}</LinkLabelStatus>
               {entry.status && (
                 <LinkStatus color={entry.status.color} bgColor={entry.status.bgColor} fontSize="14px">
                   {entry.status.text}

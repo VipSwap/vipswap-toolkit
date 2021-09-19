@@ -8,11 +8,13 @@ export interface Props {
   secondary?: boolean;
   isActive?: boolean;
   theme: DefaultTheme;
+  markerColor?: string;
 }
 export interface LabelProps {
   isPushed?: boolean;
   isActive?: boolean;
   theme: DefaultTheme;
+  markerColor?: string;
 }
 
 const rainbowAnimation = keyframes`
@@ -26,13 +28,13 @@ const rainbowAnimation = keyframes`
 `;
 
 const LinkLabel = styled.div<LabelProps>`
-  color: ${({ isPushed, theme, isActive }) => (isPushed ? (isActive ? theme.colors.navActivityText : theme.colors.navText) : "transparent")};
+  color: ${({ isPushed, theme, isActive,markerColor }) => markerColor?? (isPushed ? (isActive ? theme.colors.navActivityText : theme.colors.navText) : "transparent")};
   transition: color 0.4s;
   flex-grow: 1;
 `;
 
 const LinkLabelStatus = styled.div<LabelProps>`
-  color: ${({ isPushed, theme, isActive }) => (isPushed ? (isActive ? theme.colors.navActivityText : theme.colors.navText) : "transparent")};
+  color: ${({ isPushed, theme, isActive,markerColor }) => markerColor??(isPushed ? (isActive ? theme.colors.navActivityText : theme.colors.navText) : "transparent")};
   transition: color 0.4s;
   flex-grow: 1;
 `;
@@ -52,12 +54,15 @@ const MenuEntry = styled.div<Props>`
   align-items: center;
   height: ${MENU_ENTRY_HEIGHT_2}px;
   border-radius: 6px;
-  margin: ${({ secondary }) => (secondary ? "8px 32px" : "8px 16px")};
+  margin: ${({ secondary }) => (secondary ? "8px 16px" : "8px 0px")};
   padding: ${({ secondary }) => (secondary ? "0 32px" : "0 16px")};
   font-size: ${({ secondary }) => (secondary ? "14px" : "16px")};
   background-color: ${({ secondary, theme, isActive }) => (isActive?(secondary ? "transparent" : theme.colors.navItemBg) : "transparent")};
-  color: ${({ isActive, theme }) => isActive ? theme.colors.navActivityText : theme.colors.navText};
+  color: ${({ isActive, theme, markerColor }) => markerColor??(isActive ? theme.colors.navActivityText : theme.colors.navText)};
 
+  ${({ theme }) => theme.mediaQueries.nav} {
+    margin: ${({ secondary }) => (secondary ? "8px 32px" : "8px 16px")};
+  }
   a {
     display: flex;
     align-items: center;
@@ -66,7 +71,7 @@ const MenuEntry = styled.div<Props>`
   }
 
   svg {
-    fill: ${({ isActive, theme }) => isActive ? theme.colors.navActivityText : theme.colors.navText};
+    fill: ${({ isActive, theme, markerColor }) => markerColor??(isActive ? theme.colors.navActivityText : theme.colors.navText)};
   }
 
   &:hover {

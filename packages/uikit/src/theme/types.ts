@@ -71,6 +71,7 @@ export type Colors = {
   navDropdownBg: string;
   navDropdownText: string;
   navDropdownBorder?: string;
+  navItemBorder?: string;
 
   // Gradients
   gradients: Gradients;

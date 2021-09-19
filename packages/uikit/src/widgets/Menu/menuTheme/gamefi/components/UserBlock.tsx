@@ -25,6 +25,7 @@ const UserBlock: React.FC<Props> = ({ account, login, logout,walletSet,tokenBala
           onClick={() => {
             onPresentAccountModal();
           }}
+          style={{fontSize: '14px'}}
         >
           {accountEllipsis}
         </Button>
@@ -35,8 +36,9 @@ const UserBlock: React.FC<Props> = ({ account, login, logout,walletSet,tokenBala
           onClick={() => {
             onPresentConnectModal();
           }}
+          style={{fontSize: '14px'}}
         >
-          Connect Wallet
+          Connect<br/> Wallet
         </Button>
       )}
     </div>

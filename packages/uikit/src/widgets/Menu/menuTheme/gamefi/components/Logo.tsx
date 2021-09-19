@@ -17,7 +17,7 @@ interface Props {
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  width: 48px;
+  width: 40px;
   overflow: hidden;
   ${({ theme }) => theme.mediaQueries.nav} {
     justify-content: center;
@@ -27,8 +27,9 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledImg = styled.img<{height:number,isMobile:boolean}>`
-  height: ${({height,isMobile})=>isMobile?'48px':`${height}px`};
+  height: ${({height,isMobile})=>isMobile?'40px':`${height}px`};
   object-fit: contain;
+  max-width: fit-content;
  
   ${({ theme }) => theme.mediaQueries.nav} {
     width: 100%;

@@ -21,7 +21,7 @@ const MenuLan: React.FC<Props> = ({ currentLang, langs, setLang }) => (
     position="top"
     className="MenuLanWidth"
     target={
-      <Button style={{width: '100%'}} variant="text" startIcon={<LanguageIcon color="navText" width="24px" />} endIcon={<ArrowDropDownIcon color="navText"/>}>
+      <Button style={{width: '100%',padding: '0 16px'}} variant="text" startIcon={<LanguageIcon color="navText" width="24px" />} endIcon={<ArrowDropDownIcon color="navText"/>}>
         <Text color="navText" style={{flex: 2, textAlign: 'left'}}>{currentLang?.toUpperCase()}</Text>
       </Button>
     }

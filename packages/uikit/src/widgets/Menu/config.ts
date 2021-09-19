@@ -1,5 +1,6 @@
 import { LinkStatus } from "./types";
 import tradeIcon from "./icons/1.svg";
+import correctIcon from "./icons/correct.svg";
 import TelegramIcon from "./icons/1.svg";
 import TwitterIcon from "./icons/1.svg";
 // @ts-ignore
@@ -52,6 +53,7 @@ export const links = [
     ],
     iconLink: tradeIcon,
     iconSize: 24,
+    markerColor: '#f24a65'
   },
   {
     label: "Farms",
@@ -60,6 +62,7 @@ export const links = [
     status: status.LIVE,
     iconLink: tradeIcon,
     iconSize: 24,
+    markerColor: '#f24a65'
   },
   {
     label: "Pools",
@@ -193,15 +196,18 @@ export const webAsset = {
     webIconDark: 'https://bpool.vipswap.org/tokenIcon/VIP.png'
   },
   webIcon: {
-    width: 24,
-    height: 24,
+    width: 48,
+    height: 48,
     light: 'https://gamefi.ai/static/media/logo-name-1.7d800e2e.png',
     dark: 'https://gamefi.ai/static/media/logo-name-1.7d800e2e.png',
   },
   tokenAsset: {
     tokenIcon: tradeIcon,
     priceLink: "https://pancakeswap.info/token/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
-  }
+  },
+  buyTokenUrl: '',
+  auditSvg: correctIcon,
+  auditUrl: 'https://www.certik.org/projects/gamefiprotocol',
 };
 
 export const walletSet = {

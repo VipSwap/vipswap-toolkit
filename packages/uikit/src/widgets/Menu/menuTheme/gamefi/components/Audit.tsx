@@ -27,21 +27,23 @@ const AuditBtn = styled.div`
   }
   
   & span {
-    font-size: 16px;
+    font-size: 14px;
     color: #828282;
   }
   & svg {
     margin-right: 5px;
     fill: #1DC671;
+    width: 16px;
+    height: 16px;
   }
 `
 const Audit: React.FC<Props> = ({ isMobile,isPushed, togglePush, isDark, href , auditSvg, auditUrl}) => {
 
   return (
     <AuditBtn>
-      <SVG src={auditSvg} width={24} height={24} />
+      <SVG src={auditSvg} width={16} height={16}/>
       <a href={auditUrl} target="_blank" rel="noreferrer">
-        <span style={{wordBreak: 'break-word'}}>Certik Audit</span>
+        <span style={{wordBreak: 'break-word'}}>Certik <br/>Audit</span>
       </a>
     </AuditBtn>
   );
