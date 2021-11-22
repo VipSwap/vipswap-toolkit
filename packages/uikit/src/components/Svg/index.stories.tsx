@@ -56,7 +56,7 @@ export const Icons: React.FC = () => {
               <Icon width="24px" color="secondary" ml="4px" />
             </Flex>
             <Box py="4px">
-              <Text color="textSubtle" fontSize="14px">
+              <Text color="textSubtle" fontSize="14px" style={{color: '#000'}}>
                 {file}
               </Text>
             </Box>

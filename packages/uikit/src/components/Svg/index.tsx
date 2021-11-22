@@ -69,5 +69,6 @@ export { default as RefreshIcon } from "./Icons/Refresh";
 export { default as PresentWonIcon } from "./Icons/PresentWon";
 export { default as SmallDotIcon } from "./Icons/SmallDot";
 export { default as ArrowLastIcon } from "./Icons/ArrowLast";
+export { default as Share } from "./Icons/Share";
 export { default as Svg } from "./Svg";
 export type { SvgProps } from "./types";
